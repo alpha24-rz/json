@@ -3,7 +3,16 @@
 import React, { useState, useMemo } from "react";
 import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
-import { SlidersHorizontal, FolderOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { 
+  SlidersHorizontal, 
+  FolderOpen, 
+  ChevronDown, 
+  ChevronUp, 
+  Layout, 
+  ShoppingBag, 
+  FileSpreadsheet, 
+  LayoutGrid 
+} from "lucide-react";
 
 interface ProjectCatalogProps {
   initialProjects: Project[];
@@ -14,13 +23,20 @@ interface ProjectCatalogProps {
 
 const INITIAL_COUNT = 3;
 
+const CATEGORY_TABS = [
+  { id: "Landing Page", label: "Landing Page", icon: Layout },
+  { id: "E-Commerce", label: "E-Commerce", icon: ShoppingBag },
+  { id: "Excel & Spreadsheet", label: "Excel & Spreadsheet", icon: FileSpreadsheet },
+  { id: "Browse All", label: "Browse All", icon: LayoutGrid },
+];
+
 export default function ProjectCatalog({
   initialProjects,
-  categories,
   globalDonationLink,
   globalDonationQr,
 }: ProjectCatalogProps) {
-  const [selectedCategory, setSelectedCategory] = useState("Semua");
+  // Start with Landing Page as requested
+  const [selectedCategory, setSelectedCategory] = useState("Landing Page");
   const [sortBy, setSortBy] = useState<"featured" | "newest" | "views" | "downloads">("featured");
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_COUNT);
@@ -38,9 +54,11 @@ export default function ProjectCatalog({
   const filteredProjects = useMemo(() => {
     return initialProjects
       .filter((project) => {
-        // Category filter
-        if (selectedCategory !== "Semua" && project.category !== selectedCategory) {
-          return false;
+        // Category filter: "Browse All" shows all projects
+        if (selectedCategory !== "Browse All" && selectedCategory !== "Semua") {
+          if (project.category !== selectedCategory) {
+            return false;
+          }
         }
 
         // Tech filter
@@ -89,31 +107,48 @@ export default function ProjectCatalog({
 
           {/* Quick Counter */}
           <div className="text-xs font-medium text-neutral-500 bg-neutral-100 px-3.5 py-2 rounded-xl border border-neutral-200 self-start md:self-auto">
-            Menampilkan <strong className="text-neutral-900 font-bold">{displayedProjects.length}</strong> dari {filteredProjects.length} proyek
+            Menampilkan <strong className="text-neutral-900 font-bold">{displayedProjects.length}</strong> dari {filteredProjects.length} produk
           </div>
         </div>
 
         {/* Minimal Category & Sorting Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-neutral-200/80">
           
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills with Icons */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setSelectedCategory(cat);
-                  setVisibleCount(INITIAL_COUNT);
-                }}
-                className={`px-3.5 py-1.5 text-xs font-semibold rounded-xl whitespace-nowrap transition-all duration-150 ${
-                  selectedCategory === cat
-                    ? "bg-neutral-950 text-white shadow-xs"
-                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200/80 hover:text-neutral-900"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {CATEGORY_TABS.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = selectedCategory === tab.id;
+              const count = tab.id === "Browse All"
+                ? initialProjects.length
+                : initialProjects.filter((p) => p.category === tab.id).length;
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setSelectedCategory(tab.id);
+                    setSelectedTech(null);
+                    setVisibleCount(INITIAL_COUNT);
+                  }}
+                  className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border ${
+                    isActive
+                      ? "bg-neutral-950 text-white border-neutral-950 shadow-xs"
+                      : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:text-neutral-950 hover:bg-neutral-50"
+                  }`}
+                >
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
+                  <span>{tab.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${
+                      isActive ? "bg-white/20 text-white" : "bg-neutral-100 text-neutral-500"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Sort Selector */}
@@ -141,7 +176,7 @@ export default function ProjectCatalog({
         {/* Optional Quick Tech Tags */}
         {allTechList.length > 0 && (
           <div className="flex items-center gap-1.5 flex-wrap text-[11px] text-neutral-500 -mt-3">
-            <span className="font-medium mr-1">Teknologi:</span>
+            <span className="font-medium mr-1">Filter Tech:</span>
             {allTechList.map((tech) => (
               <button
                 key={tech}
@@ -193,14 +228,14 @@ export default function ProjectCatalog({
                   onClick={() => setVisibleCount((prev) => prev + 3)}
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-neutral-300 hover:border-neutral-950 text-neutral-950 font-bold text-sm shadow-xs hover:shadow-md transition-all duration-200 group"
                 >
-                  <span>Lihat Proyek Lainnya</span>
+                  <span>Lihat Produk Lainnya</span>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 font-semibold group-hover:bg-[#9BEC00] group-hover:text-black transition">
                     +{filteredProjects.length - visibleCount}
                   </span>
                   <ChevronDown className="w-4 h-4 text-neutral-600 group-hover:translate-y-0.5 transition-transform" />
                 </button>
                 <p className="text-xs text-neutral-400 mt-2">
-                  Menampilkan {displayedProjects.length} dari {filteredProjects.length} karya pilihan
+                  Menampilkan {displayedProjects.length} dari {filteredProjects.length} produk di kategori ini
                 </p>
               </div>
             ) : filteredProjects.length > INITIAL_COUNT ? (
@@ -226,20 +261,20 @@ export default function ProjectCatalog({
               <FolderOpen className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-neutral-800">
-              Tidak ada proyek dalam kategori ini
+              Belum ada produk di kategori {selectedCategory}
             </h3>
             <p className="text-xs text-neutral-500 max-w-sm">
-              Pilih kategori &quot;Semua&quot; untuk melihat seluruh proyek yang tersedia.
+              Klik &quot;Browse All&quot; untuk melihat seluruh koleksi produk digital yang tersedia.
             </p>
             <button
               onClick={() => {
-                setSelectedCategory("Semua");
+                setSelectedCategory("Browse All");
                 setSelectedTech(null);
                 setVisibleCount(INITIAL_COUNT);
               }}
               className="px-4 py-2 bg-neutral-900 text-white rounded-xl text-xs font-semibold hover:bg-neutral-800 transition"
             >
-              Reset Kategori
+              Browse All
             </button>
           </div>
         )}
