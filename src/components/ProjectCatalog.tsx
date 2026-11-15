@@ -87,7 +87,7 @@ export default function ProjectCatalog({
               <span>Eksplorasi Proyek Pilihan</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
-              Featured Open Source Projects
+              Discover Something Great
             </h2>
           </div>
 
