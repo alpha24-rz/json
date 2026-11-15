@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDown, Heart } from "lucide-react";
+import { ArrowDown, Coffee } from "lucide-react";
 import DonationModal from "./DonationModal";
 import Orb from "./Orb";
 
@@ -32,7 +32,7 @@ export default function HeroSection({
               backgroundColor="#ffffff"
               size={1}
               glow={1.3}
-              bleed={0.8}
+              bleed={0.4}
               hoverIntensity={0.9}
               trail={1}
               rotateOnHover
@@ -60,7 +60,6 @@ export default function HeroSection({
               Jelajahi & Unduh{" "}
               <span className="relative inline-block text-neutral-950">
                 Source Code Web
-                <span className="absolute bottom-1 left-0 w-full h-3 bg-[#08CB00]/25 -z-10 rounded-sm" />
               </span>{" "}
               Secara Gratis.
             </h1>
@@ -79,13 +78,13 @@ export default function HeroSection({
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
-            {/* Donation CTA Button with #08CB00 */}
+            {/* Traktir CTA Button with #08CB00 */}
             <button
               onClick={() => setIsDonationOpen(true)}
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-extrabold text-sm rounded-xl shadow-md transition glow-green-sm"
             >
-              <Heart className="w-4 h-4 fill-black text-black" />
-              <span>Dukung via Donasi QR</span>
+              <Coffee className="w-4 h-4 text-black" />
+              <span>Traktir Pengembang</span>
             </button>
           </div>
 
@@ -104,7 +103,7 @@ export default function HeroSection({
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Coba Tanpa Setup</div>
             </div>
             <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
-              <div className="text-2xl font-black text-neutral-900">QR Donasi</div>
+              <div className="text-2xl font-black text-neutral-900">Traktir Kopi</div>
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Dukung Pembuat</div>
             </div>
           </div>

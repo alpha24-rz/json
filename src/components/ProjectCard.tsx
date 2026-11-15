@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Project } from "@/lib/types";
 import { 
   ExternalLink, 
-  QrCode, 
+  Coffee,
   ArrowRight, 
   Eye, 
   Download, 
@@ -168,15 +168,15 @@ export default function ProjectCard({
                 </Link>
               )}
 
-              {/* 3. QR Donasi (Accented with #08CB00) */}
+              {/* 3. Traktir Kopi (Accented with #08CB00) */}
               <button
                 type="button"
                 onClick={() => setIsQrModalOpen(true)}
                 className="flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-bold text-black bg-[#08CB00]/15 hover:bg-[#08CB00] hover:text-black border border-[#08CB00]/40 hover:border-[#08CB00] rounded-xl transition duration-200 shadow-2xs group/qr"
-                title="Dukung pembuat proyek ini lewat QR Donasi"
+                title="Traktir kopi pembuat proyek ini"
               >
-                <QrCode className="w-3.5 h-3.5 text-neutral-900 group-hover/qr:scale-110 transition-transform" />
-                <span>QR Donasi</span>
+                <Coffee className="w-3.5 h-3.5 text-neutral-900 group-hover/qr:scale-110 transition-transform" />
+                <span>Traktir Kopi</span>
               </button>
 
               {/* 4. Detail Page Link */}

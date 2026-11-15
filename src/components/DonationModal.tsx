@@ -51,10 +51,10 @@ export default function DonationModal({
         {/* Header */}
         <div className="text-center space-y-2 mb-6">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#08CB00]/15 text-[#08CB00] mb-1">
-            <Heart className="w-6 h-6 fill-[#08CB00]" />
+            <Coffee className="w-6 h-6 text-[#08CB00]" />
           </div>
           <h3 className="text-xl font-bold text-neutral-900">
-            Dukung Pengembang
+            Traktir Kopi Pengembang
           </h3>
           <p className="text-xs text-neutral-500 max-w-xs mx-auto">
             {projectTitle ? (
@@ -62,7 +62,7 @@ export default function DonationModal({
                 Apresiasi untuk proyek <strong className="text-neutral-800">{projectTitle}</strong> agar tetap gratis & terus berkembang.
               </span>
             ) : (
-              "Dukungan Anda membantu penyediaan server, domain, dan kode sumber gratis untuk publik."
+              "Traktiran kopi Anda membantu penyediaan server, domain, dan kode sumber gratis untuk publik."
             )}
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function DonationModal({
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold rounded-xl shadow-md transition glow-green-sm"
         >
-          <span>Buka Halaman Donasi</span>
+          <span>Buka Halaman Saweria / Traktir</span>
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>

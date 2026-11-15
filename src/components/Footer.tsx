@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Coffee } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 
@@ -61,8 +61,8 @@ export default function Footer({
                   onClick={() => setIsDonationOpen(true)}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#08CB00] text-black font-bold text-xs hover:bg-[#07b500] transition"
                 >
-                  <Heart className="w-3.5 h-3.5 fill-black" />
-                  <span>Dukung via QR Donasi</span>
+                  <Coffee className="w-3.5 h-3.5 text-black" />
+                  <span>Traktir Kopi</span>
                 </button>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Footer({
                     onClick={() => setIsDonationOpen(true)}
                     className="hover:text-white transition text-left"
                   >
-                    QR Donasi Saweria
+                    Traktir Kopi / Saweria
                   </button>
                 </li>
               </ul>

@@ -7,6 +7,7 @@ import {
   ExternalLink, 
   Download, 
   QrCode, 
+  Coffee,
   Heart, 
   ArrowLeft, 
   Calendar, 
@@ -175,13 +176,13 @@ export default function ProjectDetailClient({
           </a>
         )}
 
-        {/* 4. QR Donasi Button (Featured #08CB00) */}
+        {/* 4. Traktir Kopi Button (Featured #08CB00) */}
         <button
           onClick={() => setIsQrModalOpen(true)}
           className="flex items-center gap-2 px-5 py-3 bg-[#08CB00] hover:bg-[#07b500] text-black font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md glow-green-sm ml-auto"
         >
-          <QrCode className="w-4 h-4" />
-          <span>QR Donasi / Saweria</span>
+          <Coffee className="w-4 h-4 text-black" />
+          <span>Traktir Kopi</span>
         </button>
       </div>
 
@@ -277,24 +278,24 @@ export default function ProjectDetailClient({
             </div>
           </div>
 
-          {/* Quick QR Donasi Mini-Box in Sidebar */}
+          {/* Quick Traktir Kopi Mini-Box in Sidebar */}
           <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 text-center space-y-4 shadow-2xs">
             <div className="w-10 h-10 rounded-full bg-[#08CB00]/15 text-[#08CB00] flex items-center justify-center mx-auto">
-              <Heart className="w-5 h-5 fill-[#08CB00]" />
+              <Coffee className="w-5 h-5 text-[#08CB00]" />
             </div>
             <div>
               <h4 className="font-bold text-neutral-950 text-sm">
                 Suka dengan Proyek Ini?
               </h4>
               <p className="text-xs text-neutral-500 mt-1">
-                Bantu pengembang tetap bersemangat membagikan karya gratis dengan mentraktir kopi lewat QRIS atau Saweria.
+                Bantu pengembang tetap bersemangat membagikan karya gratis dengan mentraktir kopi lewat Saweria atau QRIS.
               </p>
             </div>
             <button
               onClick={() => setIsQrModalOpen(true)}
               className="w-full py-2.5 px-4 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm"
             >
-              Buka QR Donasi
+              Traktir Kopi
             </button>
           </div>
         </div>

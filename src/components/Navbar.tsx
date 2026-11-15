@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart, Menu, X } from "lucide-react";
+import { Coffee, Menu, X } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 
@@ -68,13 +68,13 @@ export default function Navbar({
               </a>
             )}
 
-            {/* Donation Button (Green #08CB00) */}
+            {/* Traktir Button (Green #08CB00) */}
             <button
               onClick={() => setIsDonationOpen(true)}
               className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl transition shadow-xs hover:shadow-md glow-green-sm"
             >
-              <Heart className="w-3.5 h-3.5 text-black fill-black" />
-              <span>Donasi QR</span>
+              <Coffee className="w-3.5 h-3.5 text-black" />
+              <span>Traktir Kopi</span>
             </button>
           </div>
 
@@ -83,9 +83,9 @@ export default function Navbar({
             <button
               onClick={() => setIsDonationOpen(true)}
               className="p-2 text-black bg-[#08CB00] rounded-lg hover:bg-[#07b500] shadow-xs"
-              aria-label="Donasi"
+              aria-label="Traktir Kopi"
             >
-              <Heart className="w-4 h-4 fill-black text-black" />
+              <Coffee className="w-4 h-4 text-black" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -133,8 +133,8 @@ export default function Navbar({
                 }}
                 className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl shadow-xs glow-green-sm"
               >
-                <Heart className="w-4 h-4 fill-black text-black" />
-                <span>Donasi QR</span>
+                <Coffee className="w-4 h-4 text-black" />
+                <span>Traktir Kopi</span>
               </button>
             </div>
           </div>
