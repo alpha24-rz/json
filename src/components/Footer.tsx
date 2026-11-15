@@ -162,14 +162,6 @@ export default function Footer({
                   <span>Traktir Kopi</span>
                 </button>
               </div>
-
-              {/* Status Badge */}
-              <div className="pt-2">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-[11px] text-neutral-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#9BEC00] animate-pulse"></span>
-                  Semua Produk Siap Unduh & Terverifikasi
-                </span>
-              </div>
             </div>
 
             {/* Col 2: Kategori Produk (Span 3) */}
