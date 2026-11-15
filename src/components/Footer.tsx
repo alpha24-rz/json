@@ -169,7 +169,7 @@ export default function Footer({
           {/* Bottom Bar with Back to Top */}
           <div className="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
             <p>
-              &copy; {new Date().getFullYear()} {siteTitle}. Gratis untuk penggunaan pribadi & komersial.
+              &copy; {new Date().getFullYear()} {siteTitle}.
             </p>
 
             {/* Back to top button */}
