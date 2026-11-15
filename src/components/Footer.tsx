@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Coffee, ArrowRight, ArrowUp, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { Coffee, ArrowRight, ArrowUp, CheckCircle2, ShieldCheck } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 import { MAIN_CATEGORIES } from "@/lib/categories";
@@ -77,10 +77,6 @@ export default function Footer({
               
               {/* Left Column: Heading & Value Prop */}
               <div className="lg:col-span-7 space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#9BEC00]/15 text-[#9BEC00] text-xs font-bold border border-[#9BEC00]/30">
-                  <Sparkles className="w-3.5 h-3.5 fill-[#9BEC00]" />
-                  <span>100% Free & Open Source</span>
-                </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Koleksi Produk Digital Siap Pakai
                 </h3>
