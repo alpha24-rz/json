@@ -11,7 +11,7 @@ import {
   Layout, 
   ShoppingBag, 
   FileSpreadsheet, 
-  LayoutGrid 
+  ArrowRight 
 } from "lucide-react";
 
 interface ProjectCatalogProps {
@@ -23,11 +23,10 @@ interface ProjectCatalogProps {
 
 const INITIAL_COUNT = 3;
 
-const CATEGORY_TABS = [
+const MAIN_CATEGORIES = [
   { id: "Landing Page", label: "Landing Page", icon: Layout },
   { id: "E-Commerce", label: "E-Commerce", icon: ShoppingBag },
   { id: "Excel & Spreadsheet", label: "Excel & Spreadsheet", icon: FileSpreadsheet },
-  { id: "Browse All", label: "Browse All", icon: LayoutGrid },
 ];
 
 export default function ProjectCatalog({
@@ -97,58 +96,97 @@ export default function ProjectCatalog({
     <section id="catalog" className="w-full py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
-        {/* Section Header */}
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
+        {/* Section Header & Category Bar (Sejajar / Aligned) */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-neutral-200/80">
+          
+          {/* Section Title */}
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight shrink-0">
             Discover Something Great
           </h2>
-        </div>
 
-        {/* Minimal Category & Sorting Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-neutral-200/80">
-          
-          {/* Category Filter Pills with Icons */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
-            {CATEGORY_TABS.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = selectedCategory === tab.id;
-              const count = tab.id === "Browse All"
-                ? initialProjects.length
-                : initialProjects.filter((p) => p.category === tab.id).length;
+          {/* Categories, Browse All & Sort Selector */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+            
+            {/* Category Filter Pills with Icons */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
+              {MAIN_CATEGORIES.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = selectedCategory === tab.id;
+                const count = initialProjects.filter((p) => p.category === tab.id).length;
 
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => {
-                    setSelectedCategory(tab.id);
-                    setSelectedTech(null);
-                    setVisibleCount(INITIAL_COUNT);
-                  }}
-                  className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border ${
-                    isActive
-                      ? "bg-neutral-950 text-white border-neutral-950 shadow-xs"
-                      : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:text-neutral-950 hover:bg-neutral-50"
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
-                  <span>{tab.label}</span>
-                  <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${
-                      isActive ? "bg-white/20 text-white" : "bg-neutral-100 text-neutral-500"
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setSelectedCategory(tab.id);
+                      setSelectedTech(null);
+                      setVisibleCount(INITIAL_COUNT);
+                    }}
+                    className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border cursor-pointer ${
+                      isActive
+                        ? "bg-neutral-950 text-white border-neutral-950 shadow-xs"
+                        : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:text-neutral-950 hover:bg-neutral-50"
                     }`}
                   >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
+                    <span>{tab.label}</span>
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${
+                        isActive ? "bg-white/20 text-white" : "bg-neutral-100 text-neutral-500"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
 
-          {/* Sort Selector */}
-          <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs text-neutral-600">
+            {/* Subtle Divider */}
+            <div className="hidden sm:block w-px h-5 bg-neutral-200 mx-1 shrink-0" />
+
+            {/* Browse All: Clean text-only without box badge */}
+            <button
+              onClick={() => {
+                setSelectedCategory("Browse All");
+                setSelectedTech(null);
+                setVisibleCount(INITIAL_COUNT);
+              }}
+              className={`group inline-flex items-center gap-1.5 py-1.5 px-2 text-xs font-bold transition-all duration-200 shrink-0 cursor-pointer ${
+                selectedCategory === "Browse All"
+                  ? "text-neutral-950"
+                  : "text-neutral-500 hover:text-neutral-950"
+              }`}
+            >
+              <span className="relative">
+                Browse All
+                <span
+                  className={`absolute -bottom-0.5 left-0 h-[2px] transition-all duration-300 ${
+                    selectedCategory === "Browse All"
+                      ? "w-full bg-[#9BEC00]"
+                      : "w-0 group-hover:w-full bg-neutral-900"
+                  }`}
+                />
+              </span>
+              <span className="text-[11px] font-semibold text-neutral-400 group-hover:text-neutral-600">
+                ({initialProjects.length})
+              </span>
+              <ArrowRight
+                className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 ${
+                  selectedCategory === "Browse All"
+                    ? "text-[#9BEC00] translate-x-0.5"
+                    : "text-neutral-400 group-hover:text-neutral-950"
+                }`}
+              />
+            </button>
+
+            {/* Subtle Divider */}
+            <div className="hidden sm:block w-px h-5 bg-neutral-200 mx-1 shrink-0" />
+
+            {/* Sort Selector */}
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 rounded-xl text-xs text-neutral-600 transition shrink-0">
               <SlidersHorizontal className="w-3.5 h-3.5 text-neutral-500" />
-              <span>Urutkan:</span>
+              <span className="text-neutral-400 text-[11px]">Urutkan:</span>
               <select
                 value={sortBy}
                 onChange={(e: any) => {
@@ -163,6 +201,7 @@ export default function ProjectCatalog({
                 <option value="downloads">Paling Banyak Diunduh</option>
               </select>
             </div>
+
           </div>
         </div>
 
