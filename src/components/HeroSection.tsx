@@ -1,9 +1,33 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDown, Coffee } from "lucide-react";
+import { ArrowDown, Coffee, ShoppingBag, Store, CodeXml, LayoutDashboard } from "lucide-react";
 import DonationModal from "./DonationModal";
 import Orb from "./Orb";
+import CardSwap, { CardSwapItem } from "./CardSwap";
+
+const showcaseItems: CardSwapItem[] = [
+  {
+    title: "TokoKatalog — Minimalist E-Commerce",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
+    icon: <ShoppingBag className="w-3.5 h-3.5 text-neutral-800" />,
+  },
+  {
+    title: "KasirKita — POS & Inventory UMKM",
+    image: "https://images.unsplash.com/photo-1556742049-0a67e5572293?q=80&w=1200&auto=format&fit=crop",
+    icon: <Store className="w-3.5 h-3.5 text-neutral-800" />,
+  },
+  {
+    title: "DocuFast — API & Technical Docs Template",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop",
+    icon: <CodeXml className="w-3.5 h-3.5 text-neutral-800" />,
+  },
+  {
+    title: "AdminPulse — SaaS & Analytics Dashboard",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    icon: <LayoutDashboard className="w-3.5 h-3.5 text-neutral-800" />,
+  },
+];
 
 interface HeroSectionProps {
   totalProjects: number;
@@ -80,34 +104,25 @@ export default function HeroSection({
             </button>
           </div>
 
-          {/* Tech Stack Ticker Bar */}
-          <div className="pt-8 border-t border-neutral-200/60 max-w-3xl mx-auto space-y-3">
-            <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">
-              Dibangun dengan Arsitektur & Teknologi Modern
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-              {[
-                { name: "Next.js 15", tag: "App Router" },
-                { name: "React 19", tag: "Server Components" },
-                { name: "TypeScript", tag: "Type Safe" },
-                { name: "Tailwind CSS v4", tag: "Styling" },
-                { name: "SQLite & PostgreSQL", tag: "Database" },
-                { name: "Node.js", tag: "Runtime" },
-                { name: "Lucide Icons", tag: "Icons" },
-              ].map((tech) => (
-                <div
-                  key={tech.name}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/85 backdrop-blur-xs border border-neutral-200/90 shadow-2xs hover:border-neutral-900/40 hover:bg-white transition group"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#08CB00] shadow-[0_0_6px_#08CB00]" />
-                  <span className="text-xs font-bold text-neutral-800 group-hover:text-neutral-950">
-                    {tech.name}
-                  </span>
-                  <span className="text-[10px] text-neutral-400 font-medium">
-                    {tech.tag}
-                  </span>
-                </div>
-              ))}
+          {/* Interactive CardSwap Showcase */}
+          <div className="pt-6 max-w-4xl mx-auto flex flex-col items-center">
+            <div className="w-full h-[380px] sm:h-[460px] relative flex items-center justify-center">
+              <CardSwap
+                items={showcaseItems}
+                width={440}
+                height={300}
+                cardDistance={55}
+                verticalDistance={65}
+                depth={85}
+                skewAmount={5}
+                delay={3800}
+                theme="light"
+                pauseOnHover
+              />
+            </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/85 border border-neutral-200/80 text-[11px] font-semibold text-neutral-500 mt-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#08CB00] shadow-[0_0_6px_#08CB00]" />
+              <span>Preview Proyek Unggulan • Geser atau klik kartu untuk melihat sistem lainnya</span>
             </div>
           </div>
         </div>
