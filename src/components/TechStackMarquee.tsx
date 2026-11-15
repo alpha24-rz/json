@@ -117,13 +117,7 @@ const TECH_LIST: TechItem[] = [
 
 export default function TechStackMarquee() {
   return (
-    <section className="w-full bg-neutral-950 text-white border-t border-neutral-900 py-12 sm:py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <p className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-neutral-400">
-          Teknologi & Tools yang Digunakan
-        </p>
-      </div>
-
+    <section className="w-full bg-neutral-950 text-white border-t border-neutral-900 py-8 sm:py-10 overflow-hidden">
       {/* Marquee Strip with Left/Right Gradient Fade */}
       <div className="relative w-full overflow-hidden mask-gradient-x">
         <div className="animate-marquee items-center gap-10 sm:gap-14 py-2">
