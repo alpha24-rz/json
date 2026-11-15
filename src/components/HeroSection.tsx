@@ -49,7 +49,7 @@ export default function HeroSection({
     <>
       <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-20 sm:py-28">
         {/* Animated Background Orb - Positioned Higher Behind Headline */}
-        <div className="absolute top-0 left-0 right-0 h-[520px] sm:h-[640px] -translate-y-8 sm:-translate-y-12 z-0 overflow-hidden pointer-events-none opacity-50 flex items-center justify-center">
+        <div className="absolute top-0 left-0 right-0 h-[1000px] sm:h-[1090px] -translate-y-1 sm:-translate-y-50 z-0 overflow-hidden pointer-events-none opacity-50 flex items-center justify-center">
           <Orb
             colors={["#9BEC00", "#a3e635", "#111827"]}
             backgroundColor="#ffffff"
@@ -104,8 +104,8 @@ export default function HeroSection({
           </div>
 
           {/* Interactive CardSwap Showcase - Enlarged */}
-          <div className="pt-6 max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
-            <div className="w-full h-[520px] sm:h-[620px] lg:h-[680px] relative flex items-center justify-center">
+          <div className="-mt-3 sm:-mt-6 lg:-mt-8 max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+            <div className="w-full h-[500px] sm:h-[600px] lg:h-[650px] relative flex items-center justify-center">
               <CardSwap
                 items={showcaseItems}
                 width={560}
@@ -118,10 +118,6 @@ export default function HeroSection({
                 theme="light"
                 pauseOnHover
               />
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100/90 border border-neutral-200/90 text-xs font-semibold text-neutral-600 mt-3 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9BEC00] shadow-[0_0_6px_#9BEC00]" />
-              <span>Preview Proyek Unggulan • Geser atau klik kartu untuk melihat sistem lainnya</span>
             </div>
           </div>
         </div>
