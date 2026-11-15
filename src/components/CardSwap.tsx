@@ -307,19 +307,19 @@ Card.displayName = 'Card';
 
 const ItemCard = ({ item }: { item: CardSwapItem }) => (
   <Card>
-    <div className="box-border flex h-full flex-col gap-1.5 p-1.5">
+    <div className="box-border flex h-full flex-col gap-2 p-2">
       {(item.icon || item.title) && (
-        <div className="flex h-[30px] min-w-0 flex-none items-center gap-2.5 px-1.5">
+        <div className="flex h-[36px] min-w-0 flex-none items-center gap-2.5 px-2">
           {item.icon && (
             <span
-              className="grid h-6 w-6 flex-none place-items-center rounded-full"
+              className="grid h-7 w-7 flex-none place-items-center rounded-full"
               style={{ background: 'var(--swap-badge)' }}
             >
               {item.icon}
             </span>
           )}
           {item.title && (
-            <span className="overflow-hidden text-[14px] leading-[1.2] font-medium tracking-[-0.01em] text-ellipsis whitespace-nowrap">
+            <span className="overflow-hidden text-[15px] leading-[1.2] font-semibold tracking-[-0.01em] text-ellipsis whitespace-nowrap">
               {item.title}
             </span>
           )}

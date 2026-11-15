@@ -48,21 +48,20 @@ export default function HeroSection({
   return (
     <>
       <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-20 sm:py-28">
-        {/* Animated Background Orb */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none opacity-45">
-          <div className="w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] shrink-0">
-            <Orb
-              colors={["#9BEC00", "#a3e635", "#111827"]}
-              backgroundColor="#ffffff"
-              size={1}
-              glow={1.3}
-              bleed={0.4}
-              hoverIntensity={0.9}
-              trail={1}
-              rotateOnHover
-              followCursor
-            />
-          </div>
+        {/* Animated Background Orb - Exactly Centered in Hero Section */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50">
+          <Orb
+            colors={["#9BEC00", "#a3e635", "#111827"]}
+            backgroundColor="#ffffff"
+            size={1.15}
+            glow={1.4}
+            bleed={0.35}
+            hoverIntensity={0.9}
+            trail={1}
+            rotateOnHover
+            followCursor
+            className="w-full h-full"
+          />
         </div>
 
         {/* Subtle decorative background pattern */}
@@ -104,23 +103,23 @@ export default function HeroSection({
             </button>
           </div>
 
-          {/* Interactive CardSwap Showcase */}
-          <div className="pt-6 max-w-4xl mx-auto flex flex-col items-center">
-            <div className="w-full h-[380px] sm:h-[460px] relative flex items-center justify-center">
+          {/* Interactive CardSwap Showcase - Enlarged */}
+          <div className="pt-6 max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+            <div className="w-full h-[520px] sm:h-[620px] lg:h-[680px] relative flex items-center justify-center">
               <CardSwap
                 items={showcaseItems}
-                width={440}
-                height={300}
-                cardDistance={55}
-                verticalDistance={65}
-                depth={85}
-                skewAmount={5}
-                delay={3800}
+                width={560}
+                height={380}
+                cardDistance={65}
+                verticalDistance={75}
+                depth={95}
+                skewAmount={6}
+                delay={4000}
                 theme="light"
                 pauseOnHover
               />
             </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/85 border border-neutral-200/80 text-[11px] font-semibold text-neutral-500 mt-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100/90 border border-neutral-200/90 text-xs font-semibold text-neutral-600 mt-3 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#9BEC00] shadow-[0_0_6px_#9BEC00]" />
               <span>Preview Proyek Unggulan • Geser atau klik kartu untuk melihat sistem lainnya</span>
             </div>
