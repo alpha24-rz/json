@@ -3,15 +3,15 @@
 import React, { useState, useMemo } from "react";
 import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
-import { 
-  SlidersHorizontal, 
-  FolderOpen, 
-  ChevronDown, 
-  ChevronUp, 
-  Layout, 
-  ShoppingBag, 
-  FileSpreadsheet, 
-  ArrowRight 
+import {
+  SlidersHorizontal,
+  FolderOpen,
+  ChevronDown,
+  ChevronUp,
+  Layout,
+  ShoppingBag,
+  FileSpreadsheet,
+  ArrowRight
 } from "lucide-react";
 
 interface ProjectCatalogProps {
@@ -95,10 +95,10 @@ export default function ProjectCatalog({
   return (
     <section id="catalog" className="w-full py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        
+
         {/* Section Header & Category Bar (Sejajar / Aligned) */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-neutral-200/80">
-          
+
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight shrink-0">
             Discover Something Great
@@ -106,13 +106,12 @@ export default function ProjectCatalog({
 
           {/* Categories, Browse All & Sort Selector */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-            
-            {/* Category Filter Pills with Icons */}
+
+            {/* Category Filter Pills with Icons (Clean without number counts) */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
               {MAIN_CATEGORIES.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = selectedCategory === tab.id;
-                const count = initialProjects.filter((p) => p.category === tab.id).length;
 
                 return (
                   <button
@@ -130,13 +129,6 @@ export default function ProjectCatalog({
                   >
                     <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
                     <span>{tab.label}</span>
-                    <span
-                      className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${
-                        isActive ? "bg-white/20 text-white" : "bg-neutral-100 text-neutral-500"
-                      }`}
-                    >
-                      {count}
-                    </span>
                   </button>
                 );
               })}
@@ -167,9 +159,6 @@ export default function ProjectCatalog({
                       : "w-0 group-hover:w-full bg-neutral-900"
                   }`}
                 />
-              </span>
-              <span className="text-[11px] font-semibold text-neutral-400 group-hover:text-neutral-600">
-                ({initialProjects.length})
               </span>
               <ArrowRight
                 className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 ${
@@ -202,6 +191,7 @@ export default function ProjectCatalog({
               </select>
             </div>
 
+
           </div>
         </div>
 
@@ -216,11 +206,10 @@ export default function ProjectCatalog({
                   setSelectedTech(selectedTech === tech ? null : tech);
                   setVisibleCount(INITIAL_COUNT);
                 }}
-                className={`px-2.5 py-0.5 rounded-lg border transition ${
-                  selectedTech === tech
+                className={`px-2.5 py-0.5 rounded-lg border transition ${selectedTech === tech
                     ? "bg-[#9BEC00] text-black font-bold border-[#9BEC00]"
                     : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
-                }`}
+                  }`}
               >
                 {tech}
               </button>
