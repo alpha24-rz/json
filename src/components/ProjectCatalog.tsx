@@ -87,11 +87,8 @@ export default function ProjectCatalog({
               <span>Eksplorasi Proyek Pilihan</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
-              Katalog Website & Source Code
+              Featured Open Source Projects
             </h2>
-            <p className="text-sm text-neutral-500 mt-1 max-w-xl">
-              Pilih sistem atau template yang Anda butuhkan. Semua dilengkapi live preview, source code siap unduh, dan opsi traktir pengembang.
-            </p>
           </div>
 
           {/* Quick Counter */}
