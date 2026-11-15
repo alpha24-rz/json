@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart, Bell, Menu, X } from "lucide-react";
+import { Heart, Menu, X } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
-import SubscribeModal from "./SubscribeModal";
 
 interface NavbarProps {
   siteTitle?: string;
@@ -16,14 +15,13 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  siteTitle = "DevShowroom",
+  siteTitle = "Json",
   githubProfile = "https://github.com",
   globalDonationLink = "https://saweria.co/demo",
   globalDonationQr,
   donationNote,
 }: NavbarProps) {
   const [isDonationOpen, setIsDonationOpen] = useState(false);
-  const [isSubscribeOpen, setIsSubscribeOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -53,37 +51,30 @@ export default function Navbar({
             >
               Tentang
             </Link>
+          </nav>
+
+          {/* Action CTAs: GitHub & Green Donation */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* GitHub Button */}
             {githubProfile && (
               <a
                 href={githubProfile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition"
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-neutral-800 bg-neutral-100 hover:bg-neutral-200/80 rounded-xl transition border border-neutral-200"
               >
-                <GithubIcon className="w-4 h-4" />
+                <GithubIcon className="w-3.5 h-3.5 text-neutral-900" />
                 <span>GitHub</span>
               </a>
             )}
-          </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2.5">
-            {/* Donation Button */}
+            {/* Donation Button (Green #08CB00) */}
             <button
               onClick={() => setIsDonationOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-neutral-700 bg-neutral-100 hover:bg-neutral-200/80 rounded-xl transition border border-neutral-200"
-            >
-              <Heart className="w-3.5 h-3.5 text-neutral-900 fill-neutral-900" />
-              <span>Donasi QR</span>
-            </button>
-
-            {/* Subscribe Button (08CB00) */}
-            <button
-              onClick={() => setIsSubscribeOpen(true)}
               className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl transition shadow-xs hover:shadow-md glow-green-sm"
             >
-              <Bell className="w-3.5 h-3.5 text-black" />
-              <span>Subscribe Update</span>
+              <Heart className="w-3.5 h-3.5 text-black fill-black" />
+              <span>Donasi QR</span>
             </button>
           </div>
 
@@ -91,10 +82,10 @@ export default function Navbar({
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsDonationOpen(true)}
-              className="p-2 text-neutral-700 bg-neutral-100 rounded-lg hover:bg-neutral-200"
+              className="p-2 text-black bg-[#08CB00] rounded-lg hover:bg-[#07b500] shadow-xs"
               aria-label="Donasi"
             >
-              <Heart className="w-4 h-4 fill-neutral-900 text-neutral-900" />
+              <Heart className="w-4 h-4 fill-black text-black" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -138,19 +129,19 @@ export default function Navbar({
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  setIsSubscribeOpen(true);
+                  setIsDonationOpen(true);
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-black bg-[#08CB00] rounded-xl shadow-xs"
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl shadow-xs glow-green-sm"
               >
-                <Bell className="w-4 h-4" />
-                <span>Subscribe Update Proyek</span>
+                <Heart className="w-4 h-4 fill-black text-black" />
+                <span>Donasi QR</span>
               </button>
             </div>
           </div>
         )}
       </header>
 
-      {/* Modals */}
+      {/* Donation Modal */}
       <DonationModal
         isOpen={isDonationOpen}
         onClose={() => setIsDonationOpen(false)}
@@ -158,11 +149,6 @@ export default function Navbar({
         donationQrUrl={globalDonationQr}
         donationNote={donationNote}
       />
-      <SubscribeModal
-        isOpen={isSubscribeOpen}
-        onClose={() => setIsSubscribeOpen(false)}
-      />
     </>
   );
 }
-

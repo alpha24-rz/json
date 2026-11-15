@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDown, Sparkles, Terminal, Code, Heart, Bell, ShieldCheck } from "lucide-react";
-import SubscribeModal from "./SubscribeModal";
+import { ArrowDown, Heart } from "lucide-react";
 import DonationModal from "./DonationModal";
 
 interface HeroSectionProps {
@@ -15,12 +14,10 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   totalProjects,
-  authorName = "Developer",
   globalDonationLink,
   globalDonationQr,
   donationNote,
 }: HeroSectionProps) {
-  const [isSubscribeOpen, setIsSubscribeOpen] = useState(false);
   const [isDonationOpen, setIsDonationOpen] = useState(false);
 
   return (
@@ -31,6 +28,13 @@ export default function HeroSection({
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00] animate-pulse" />
+            <span className="text-xs font-bold text-neutral-800 tracking-wide uppercase">
+              100% Free & Open Source Catalog
+            </span>
+          </div>
 
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto space-y-4">
@@ -57,13 +61,13 @@ export default function HeroSection({
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
-            {/* Subscribe CTA Button with #08CB00 */}
+            {/* Donation CTA Button with #08CB00 */}
             <button
-              onClick={() => setIsSubscribeOpen(true)}
+              onClick={() => setIsDonationOpen(true)}
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-extrabold text-sm rounded-xl shadow-md transition glow-green-sm"
             >
-              <Bell className="w-4 h-4 text-black" />
-              <span>Subscribe Rilis Baru</span>
+              <Heart className="w-4 h-4 fill-black text-black" />
+              <span>Dukung via Donasi QR</span>
             </button>
           </div>
 
@@ -89,11 +93,7 @@ export default function HeroSection({
         </div>
       </section>
 
-      {/* Modals */}
-      <SubscribeModal
-        isOpen={isSubscribeOpen}
-        onClose={() => setIsSubscribeOpen(false)}
-      />
+      {/* Donation Modal */}
       <DonationModal
         isOpen={isDonationOpen}
         onClose={() => setIsDonationOpen(false)}
@@ -104,4 +104,3 @@ export default function HeroSection({
     </>
   );
 }
-
