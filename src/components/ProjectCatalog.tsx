@@ -107,11 +107,10 @@ export default function ProjectCatalog({
                   <Link
                     key={tab.id}
                     href={`/category/${tab.slug}`}
-                    className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border cursor-pointer ${
-                      isActive
+                    className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border cursor-pointer ${isActive
                         ? "bg-neutral-950 text-white border-neutral-950 shadow-xs"
                         : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-900 hover:text-neutral-950 hover:bg-neutral-50"
-                    }`}
+                      }`}
                   >
                     <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
                     <span>{tab.label}</span>
@@ -126,28 +125,25 @@ export default function ProjectCatalog({
             {/* Browse All: Clean text-only navigation */}
             <Link
               href="/category/all"
-              className={`group inline-flex items-center gap-1.5 py-1.5 px-2 text-xs font-bold transition-all duration-200 shrink-0 cursor-pointer ${
-                activeCategory === "All" || activeCategory === "Browse All"
+              className={`group inline-flex items-center gap-1.5 py-1.5 px-2 text-xs font-bold transition-all duration-200 shrink-0 cursor-pointer ${activeCategory === "All" || activeCategory === "Browse All"
                   ? "text-neutral-950"
                   : "text-neutral-500 hover:text-neutral-950"
-              }`}
+                }`}
             >
               <span className="relative">
                 Browse All
                 <span
-                  className={`absolute -bottom-0.5 left-0 h-[2px] transition-all duration-300 ${
-                    activeCategory === "All" || activeCategory === "Browse All"
+                  className={`absolute -bottom-0.5 left-0 h-[2px] transition-all duration-300 ${activeCategory === "All" || activeCategory === "Browse All"
                       ? "w-full bg-[#9BEC00]"
                       : "w-0 group-hover:w-full bg-neutral-900"
-                  }`}
+                    }`}
                 />
               </span>
               <ArrowRight
-                className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 ${
-                  activeCategory === "All" || activeCategory === "Browse All"
+                className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 ${activeCategory === "All" || activeCategory === "Browse All"
                     ? "text-[#9BEC00] translate-x-0.5"
                     : "text-neutral-400 group-hover:text-neutral-950"
-                }`}
+                  }`}
               />
             </Link>
 
@@ -183,9 +179,6 @@ export default function ProjectCatalog({
                   </span>
                   <ChevronDown className="w-4 h-4 text-neutral-600 group-hover:translate-y-0.5 transition-transform" />
                 </button>
-                <p className="text-xs text-neutral-400 mt-2">
-                  Menampilkan {displayedProjects.length} dari {filteredProjects.length} produk di kategori ini
-                </p>
               </div>
             ) : filteredProjects.length > INITIAL_COUNT ? (
               <div className="flex flex-col items-center justify-center pt-8 pb-4">
