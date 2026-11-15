@@ -145,18 +145,18 @@ export default function Footer({
               </ul>
             </div>
 
-            {/* Col 4: Lisensi & Jaminan (Span 2) */}
+            {/* Col 4: Ketentuan Penggunaan (Span 2) */}
             <div className="lg:col-span-2 space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-200">
-                Lisensi
+                Penggunaan
               </h4>
               <ul className="space-y-2 text-xs text-neutral-400">
                 <li className="flex items-start gap-1.5 text-neutral-300">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#9BEC00] shrink-0 mt-0.5" />
-                  <span>MIT License (Bebas Komersial)</span>
+                  <span>Bebas Komersial & Pribadi</span>
                 </li>
                 <li className="text-neutral-500 text-[11px] leading-relaxed">
-                  Bebas digunakan, dimodifikasi, dan didistribusikan untuk keperluan pribadi maupun bisnis.
+                  Bebas dipakai dan dimodifikasi untuk proyek sendiri maupun klien.
                 </li>
                 <li className="text-neutral-400 pt-1">
                   Karya oleh <span className="text-white font-bold">{authorName}</span>
@@ -169,7 +169,7 @@ export default function Footer({
           {/* Bottom Bar with Back to Top */}
           <div className="border-t border-neutral-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
             <p>
-              &copy; {new Date().getFullYear()} {siteTitle}. Open source software under MIT License.
+              &copy; {new Date().getFullYear()} {siteTitle}. Gratis untuk penggunaan pribadi & komersial.
             </p>
 
             {/* Back to top button */}
