@@ -4,7 +4,6 @@ import React, { useState, useMemo } from "react";
 import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
 import {
-  SlidersHorizontal,
   FolderOpen,
   ChevronDown,
   ChevronUp,
@@ -36,7 +35,6 @@ export default function ProjectCatalog({
 }: ProjectCatalogProps) {
   // Start with Landing Page as requested
   const [selectedCategory, setSelectedCategory] = useState("Landing Page");
-  const [sortBy, setSortBy] = useState<"featured" | "newest" | "views" | "downloads">("featured");
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_COUNT);
 
@@ -68,22 +66,10 @@ export default function ProjectCatalog({
         return true;
       })
       .sort((a, b) => {
-        if (sortBy === "featured") {
-          if (a.is_featured !== b.is_featured) return a.is_featured ? -1 : 1;
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-        }
-        if (sortBy === "newest") {
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-        }
-        if (sortBy === "views") {
-          return b.views_count - a.views_count;
-        }
-        if (sortBy === "downloads") {
-          return b.downloads_count - a.downloads_count;
-        }
-        return 0;
+        if (a.is_featured !== b.is_featured) return a.is_featured ? -1 : 1;
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       });
-  }, [initialProjects, selectedCategory, selectedTech, sortBy]);
+  }, [initialProjects, selectedCategory, selectedTech]);
 
   // Projects to display (Curated limit)
   const displayedProjects = useMemo(() => {
@@ -168,29 +154,6 @@ export default function ProjectCatalog({
                 }`}
               />
             </button>
-
-            {/* Subtle Divider */}
-            <div className="hidden sm:block w-px h-5 bg-neutral-200 mx-1 shrink-0" />
-
-            {/* Sort Selector */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 rounded-xl text-xs text-neutral-600 transition shrink-0">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-neutral-500" />
-              <span className="text-neutral-400 text-[11px]">Urutkan:</span>
-              <select
-                value={sortBy}
-                onChange={(e: any) => {
-                  setSortBy(e.target.value);
-                  setVisibleCount(INITIAL_COUNT);
-                }}
-                className="bg-transparent font-bold text-neutral-900 focus:outline-hidden cursor-pointer"
-              >
-                <option value="featured">Unggulan</option>
-                <option value="newest">Terbaru</option>
-                <option value="views">Paling Populer</option>
-                <option value="downloads">Paling Banyak Diunduh</option>
-              </select>
-            </div>
-
 
           </div>
         </div>
