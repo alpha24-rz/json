@@ -10,7 +10,7 @@ export default async function HomePage() {
   const categories = getAllCategories();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-neutral-900 selection:bg-[#08CB00] selection:text-black">
+    <div className="min-h-screen flex flex-col bg-white text-neutral-900 selection:bg-[#9BEC00] selection:text-black">
       {/* Header */}
       <Navbar
         siteTitle={settings.site_title}

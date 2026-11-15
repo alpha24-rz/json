@@ -32,7 +32,7 @@ export default function Navbar({
           {/* Logo & Brand */}
           <Link href="/" className="flex items-center group pl-2">
             <span className="relative font-black text-neutral-950 tracking-tight text-2xl group-hover:opacity-80 transition">
-              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
+              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#9BEC00] shadow-[0_0_8px_#9BEC00]"></span>
               Json
             </span>
           </Link>
@@ -68,10 +68,10 @@ export default function Navbar({
               </a>
             )}
 
-            {/* Traktir Button (Green #08CB00) */}
+            {/* Traktir Button (Green #9BEC00) */}
             <button
               onClick={() => setIsDonationOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl transition shadow-xs hover:shadow-md glow-green-sm"
+              className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-black bg-[#9BEC00] hover:bg-[#88d400] rounded-xl transition shadow-xs hover:shadow-md glow-green-sm"
             >
               <Coffee className="w-3.5 h-3.5 text-black" />
               <span>Traktir Kopi</span>
@@ -82,7 +82,7 @@ export default function Navbar({
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setIsDonationOpen(true)}
-              className="p-2 text-black bg-[#08CB00] rounded-lg hover:bg-[#07b500] shadow-xs"
+              className="p-2 text-black bg-[#9BEC00] rounded-lg hover:bg-[#88d400] shadow-xs"
               aria-label="Traktir Kopi"
             >
               <Coffee className="w-4 h-4 text-black" />
@@ -131,7 +131,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   setIsDonationOpen(true);
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-black bg-[#08CB00] hover:bg-[#07b500] rounded-xl shadow-xs glow-green-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-bold text-black bg-[#9BEC00] hover:bg-[#88d400] rounded-xl shadow-xs glow-green-sm"
               >
                 <Coffee className="w-4 h-4 text-black" />
                 <span>Traktir Kopi</span>

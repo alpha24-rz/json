@@ -38,7 +38,7 @@ export default function Footer({
             <div className="md:col-span-2 space-y-4">
               <div className="flex items-center pl-2">
                 <span className="relative font-black text-2xl tracking-tight text-white">
-                  <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
+                  <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#9BEC00] shadow-[0_0_8px_#9BEC00]"></span>
                   Json
                 </span>
               </div>
@@ -59,7 +59,7 @@ export default function Footer({
                 )}
                 <button
                   onClick={() => setIsDonationOpen(true)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#08CB00] text-black font-bold text-xs hover:bg-[#07b500] transition"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#9BEC00] text-black font-bold text-xs hover:bg-[#88d400] transition"
                 >
                   <Coffee className="w-3.5 h-3.5 text-black" />
                   <span>Traktir Kopi</span>
@@ -117,7 +117,7 @@ export default function Footer({
             </p>
             <p className="flex items-center gap-1.5">
               <span>Dibuat dengan Next.js & Tailwind CSS</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#08CB00]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#9BEC00]"></span>
             </p>
           </div>
         </div>

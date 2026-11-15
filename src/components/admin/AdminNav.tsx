@@ -37,7 +37,7 @@ export default function AdminNav() {
         <div className="flex items-center gap-6">
           <Link href="/admin" className="flex items-center gap-2 pl-2">
             <span className="relative font-black text-neutral-950 text-xl tracking-tight">
-              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
+              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#9BEC00] shadow-[0_0_8px_#9BEC00]"></span>
               Json
             </span>
             <span className="text-xs text-neutral-400 font-medium">/ Admin</span>

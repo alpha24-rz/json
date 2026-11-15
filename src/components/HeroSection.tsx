@@ -52,7 +52,7 @@ export default function HeroSection({
         <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none opacity-45">
           <div className="w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] shrink-0">
             <Orb
-              colors={["#08CB00", "#22c55e", "#111827"]}
+              colors={["#9BEC00", "#a3e635", "#111827"]}
               backgroundColor="#ffffff"
               size={1}
               glow={1.3}
@@ -94,10 +94,10 @@ export default function HeroSection({
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
-            {/* Traktir CTA Button with #08CB00 */}
+            {/* Traktir CTA Button with #9BEC00 */}
             <button
               onClick={() => setIsDonationOpen(true)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-extrabold text-sm rounded-xl shadow-md transition glow-green-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 bg-[#9BEC00] hover:bg-[#88d400] text-black font-extrabold text-sm rounded-xl shadow-md transition glow-green-sm"
             >
               <Coffee className="w-4 h-4 text-black" />
               <span>Traktir Pengembang</span>
@@ -121,7 +121,7 @@ export default function HeroSection({
               />
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100/85 border border-neutral-200/80 text-[11px] font-semibold text-neutral-500 mt-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#08CB00] shadow-[0_0_6px_#08CB00]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#9BEC00] shadow-[0_0_6px_#9BEC00]" />
               <span>Preview Proyek Unggulan • Geser atau klik kartu untuk melihat sistem lainnya</span>
             </div>
           </div>

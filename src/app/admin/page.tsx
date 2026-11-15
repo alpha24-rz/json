@@ -33,7 +33,7 @@ export default async function AdminDashboardPage() {
 
         <Link
           href="/admin/projects/new"
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm self-start sm:self-auto"
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Proyek Baru</span>
@@ -67,7 +67,7 @@ export default async function AdminDashboardPage() {
             <span className="text-xs font-semibold">Unduhan Source Code</span>
             <Download className="w-4 h-4" />
           </div>
-          <div className="text-2xl font-black text-[#08CB00]">{totalDownloads}</div>
+          <div className="text-2xl font-black text-[#9BEC00]">{totalDownloads}</div>
           <div className="text-[11px] text-neutral-400">Klik GitHub & ZIP</div>
         </div>
 

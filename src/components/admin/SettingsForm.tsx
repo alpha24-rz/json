@@ -114,7 +114,7 @@ export default function SettingsForm({ initialSettings }: SettingsFormProps) {
         <button
           type="submit"
           disabled={saving}
-          className="flex items-center gap-1.5 px-5 py-2.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm disabled:opacity-60"
+          className="flex items-center gap-1.5 px-5 py-2.5 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm disabled:opacity-60"
         >
           <Save className="w-4 h-4" />
           <span>{saving ? "Menyimpan..." : "Simpan Perubahan"}</span>
@@ -212,7 +212,7 @@ export default function SettingsForm({ initialSettings }: SettingsFormProps) {
         <div className="space-y-6">
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 space-y-4 shadow-xs">
             <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-900 border-b border-neutral-100 pb-3 flex items-center gap-2">
-              <QrCode className="w-4 h-4 text-[#08CB00]" />
+              <QrCode className="w-4 h-4 text-[#9BEC00]" />
               <span>QR Donasi & Saweria Default</span>
             </h2>
             <p className="text-xs text-neutral-500">

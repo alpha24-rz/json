@@ -75,8 +75,8 @@ export default function ProjectDetailClient({
         >
           {copiedShare ? (
             <>
-              <Check className="w-3.5 h-3.5 text-[#08CB00]" />
-              <span className="text-[#08CB00]">Link Tersalin!</span>
+              <Check className="w-3.5 h-3.5 text-[#9BEC00]" />
+              <span className="text-[#9BEC00]">Link Tersalin!</span>
             </>
           ) : (
             <>
@@ -94,7 +94,7 @@ export default function ProjectDetailClient({
             {project.category}
           </span>
           {project.is_featured && (
-            <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg bg-[#08CB00] text-black">
+            <span className="flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-lg bg-[#9BEC00] text-black">
               <Sparkles className="w-3.5 h-3.5 fill-black" />
               <span>Proyek Unggulan</span>
             </span>
@@ -131,7 +131,7 @@ export default function ProjectDetailClient({
         </div>
       </div>
 
-      {/* ACTION BUTTONS BAR (Highlight with #08CB00) */}
+      {/* ACTION BUTTONS BAR (Highlight with #9BEC00) */}
       <div className="p-4 sm:p-5 bg-neutral-50 border border-neutral-200 rounded-2xl flex flex-wrap items-center gap-3">
         
         {/* 1. Live Demo */}
@@ -176,10 +176,10 @@ export default function ProjectDetailClient({
           </a>
         )}
 
-        {/* 4. Traktir Kopi Button (Featured #08CB00) */}
+        {/* 4. Traktir Kopi Button (Featured #9BEC00) */}
         <button
           onClick={() => setIsQrModalOpen(true)}
-          className="flex items-center gap-2 px-5 py-3 bg-[#08CB00] hover:bg-[#07b500] text-black font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md glow-green-sm ml-auto"
+          className="flex items-center gap-2 px-5 py-3 bg-[#9BEC00] hover:bg-[#88d400] text-black font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md glow-green-sm ml-auto"
         >
           <Coffee className="w-4 h-4 text-black" />
           <span>Traktir Kopi</span>
@@ -204,7 +204,7 @@ export default function ProjectDetailClient({
           {/* Description Section */}
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-2xs">
             <h2 className="text-xl font-bold text-neutral-950 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#08CB00]"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#9BEC00]"></span>
               <span>Tentang Proyek</span>
             </h2>
             <div className="text-sm text-neutral-700 leading-relaxed space-y-3 whitespace-pre-line">
@@ -232,7 +232,7 @@ export default function ProjectDetailClient({
               ) : (
                 <div className="bg-neutral-950 text-neutral-100 p-5 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed">
                   <p className="text-neutral-400"># 1. Clone repository ini</p>
-                  <p className="text-[#08CB00]">git clone {project.github_url || "https://github.com/example/repo.git"}</p>
+                  <p className="text-[#9BEC00]">git clone {project.github_url || "https://github.com/example/repo.git"}</p>
                   <p className="mt-3 text-neutral-400"># 2. Masuk ke direktori dan install dependensi</p>
                   <p className="text-white">npm install</p>
                   <p className="mt-3 text-neutral-400"># 3. Jalankan server lokal</p>
@@ -273,15 +273,15 @@ export default function ProjectDetailClient({
               </div>
               <div className="flex justify-between py-1 border-b border-neutral-50">
                 <span className="text-neutral-500">Akses Kode</span>
-                <span className="font-bold text-[#08CB00]">100% Terbuka (Public)</span>
+                <span className="font-bold text-[#9BEC00]">100% Terbuka (Public)</span>
               </div>
             </div>
           </div>
 
           {/* Quick Traktir Kopi Mini-Box in Sidebar */}
           <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 text-center space-y-4 shadow-2xs">
-            <div className="w-10 h-10 rounded-full bg-[#08CB00]/15 text-[#08CB00] flex items-center justify-center mx-auto">
-              <Coffee className="w-5 h-5 text-[#08CB00]" />
+            <div className="w-10 h-10 rounded-full bg-[#9BEC00]/15 text-[#9BEC00] flex items-center justify-center mx-auto">
+              <Coffee className="w-5 h-5 text-[#9BEC00]" />
             </div>
             <div>
               <h4 className="font-bold text-neutral-950 text-sm">
@@ -293,7 +293,7 @@ export default function ProjectDetailClient({
             </div>
             <button
               onClick={() => setIsQrModalOpen(true)}
-              className="w-full py-2.5 px-4 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm"
+              className="w-full py-2.5 px-4 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm"
             >
               Traktir Kopi
             </button>
@@ -337,7 +337,7 @@ export default function ProjectDetailClient({
                 </p>
                 <Link
                   href={`/projects/${rel.slug}`}
-                  className="inline-block text-xs font-bold text-neutral-900 hover:text-[#08CB00] transition"
+                  className="inline-block text-xs font-bold text-neutral-900 hover:text-[#9BEC00] transition"
                 >
                   Detail Proyek &rarr;
                 </Link>

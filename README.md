@@ -8,7 +8,7 @@ Platform modern dan elegan untuk menampilkan portofolio sistem, aplikasi web, da
 * **Palet Warna:**
   * Latar Belakang: **Putih Bersih** (`#FFFFFF` / `#FAFAFA`)
   * Tipografi & Aksen Sekunder: **Hitam Pekat** (`#0A0A0A`)
-  * Tombol Aksi Kunci / Highlight: **Hijau Elektrik (`#08CB00`)** (Subscribe, QR Donasi, Unduh Source Code)
+  * Tombol Aksi Kunci / Highlight: **Hijau Neon Segar (`#9BEC00`)** (Traktir Kopi, Unduh Source Code)
 
 ---
 
@@ -24,7 +24,7 @@ Platform modern dan elegan untuk menampilkan portofolio sistem, aplikasi web, da
   * Thumbnail visual responsif dengan badge kategori dan status gratis.
   * **Tombol Live Demo:** Akses preview aplikasi secara instan.
   * **Tombol GitHub:** Menuju repository kode sumber publik.
-  * **Tombol QR Donasi (`#08CB00`):** Membuka modal interaktif berisi kode QR (QRIS / Saweria) yang digenerate otomatis atau dari gambar kustom pengembang.
+  * **Tombol Traktir Kopi (`#9BEC00`):** Membuka modal interaktif berisi kode QR (QRIS / Saweria) yang digenerate otomatis atau dari gambar kustom pengembang.
   * **Tombol Dokumentasi / Detail.**
 * **Halaman Detail Proyek (`/projects/[slug]`):**
   * Tinjauan lengkap sistem & use cases.

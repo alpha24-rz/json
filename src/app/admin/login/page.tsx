@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-4 bg-neutral-50 text-neutral-900 selection:bg-[#08CB00] selection:text-black">
+    <div className="min-h-screen flex flex-col justify-center items-center p-4 bg-neutral-50 text-neutral-900 selection:bg-[#9BEC00] selection:text-black">
       
       {/* Back to Public Site */}
       <Link
@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-neutral-950 text-white mx-auto shadow-sm">
-            <ShieldCheck className="w-6 h-6 text-[#08CB00]" />
+            <ShieldCheck className="w-6 h-6 text-[#9BEC00]" />
           </div>
           <h1 className="text-2xl font-black text-neutral-950 tracking-tight">
             Admin Dashboard

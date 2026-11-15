@@ -184,7 +184,7 @@ export default function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
           <button
             type="submit"
             disabled={submitting}
-            className="flex items-center gap-1.5 px-5 py-2.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm disabled:opacity-60"
+            className="flex items-center gap-1.5 px-5 py-2.5 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm disabled:opacity-60"
           >
             <Save className="w-4 h-4" />
             <span>{submitting ? "Menyimpan..." : "Simpan Proyek"}</span>
@@ -358,14 +358,14 @@ export default function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
                 type="checkbox"
                 checked={isPublished}
                 onChange={(e) => setIsPublished(e.target.checked)}
-                className="w-4 h-4 accent-[#08CB00] rounded cursor-pointer"
+                className="w-4 h-4 accent-[#9BEC00] rounded cursor-pointer"
               />
             </label>
 
             <label className="flex items-center justify-between p-3 bg-neutral-50 border border-neutral-200 rounded-xl cursor-pointer hover:bg-neutral-100 transition">
               <div>
                 <div className="text-xs font-bold text-neutral-900 flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5 text-[#08CB00]" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#9BEC00]" />
                   <span>Proyek Unggulan</span>
                 </div>
                 <div className="text-[11px] text-neutral-500">Tampil di urutan teratas</div>
@@ -374,7 +374,7 @@ export default function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
                 type="checkbox"
                 checked={isFeatured}
                 onChange={(e) => setIsFeatured(e.target.checked)}
-                className="w-4 h-4 accent-[#08CB00] rounded cursor-pointer"
+                className="w-4 h-4 accent-[#9BEC00] rounded cursor-pointer"
               />
             </label>
 
@@ -490,7 +490,7 @@ export default function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
           {/* Card: Kustomisasi QR Donasi Proyek */}
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 space-y-4 shadow-xs">
             <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 border-b border-neutral-100 pb-3 flex items-center gap-2">
-              <QrCode className="w-4 h-4 text-[#08CB00]" />
+              <QrCode className="w-4 h-4 text-[#9BEC00]" />
               <span>QR Donasi Proyek (Opsional)</span>
             </h3>
             <p className="text-[11px] text-neutral-500">

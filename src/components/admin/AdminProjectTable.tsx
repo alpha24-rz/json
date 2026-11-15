@@ -91,7 +91,7 @@ export default function AdminProjectTable({ initialProjects }: AdminProjectTable
 
         <Link
           href="/admin/projects/new"
-          className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2.5 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-xs rounded-xl shadow-xs transition glow-green-sm"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Proyek Baru</span>
@@ -163,7 +163,7 @@ export default function AdminProjectTable({ initialProjects }: AdminProjectTable
                       onClick={() => handleToggleStatus(project.id, "is_featured", project.is_featured)}
                       className={`p-1.5 rounded-lg border transition ${
                         project.is_featured
-                          ? "bg-[#08CB00]/20 text-[#08CB00] border-[#08CB00]/50"
+                          ? "bg-[#9BEC00]/20 text-[#9BEC00] border-[#9BEC00]/50"
                           : "bg-neutral-100 text-neutral-400 border-neutral-200 hover:text-neutral-700"
                       }`}
                       title={project.is_featured ? "Hapus dari Unggulan" : "Jadikan Unggulan"}

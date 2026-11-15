@@ -84,8 +84,8 @@ export default function ProjectCatalog({
         {/* Section Title & Description */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#08CB00]/15 text-neutral-900 text-xs font-bold mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#08CB00] fill-[#08CB00]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9BEC00]/15 text-neutral-900 text-xs font-bold mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#9BEC00] fill-[#9BEC00]" />
               <span>Eksplorasi Proyek Gratis</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
@@ -172,7 +172,7 @@ export default function ProjectCatalog({
                   onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
                   className={`px-2 py-0.5 rounded-md border transition ${
                     selectedTech === tech
-                      ? "bg-[#08CB00] text-black font-bold border-[#08CB00]"
+                      ? "bg-[#9BEC00] text-black font-bold border-[#9BEC00]"
                       : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
                   }`}
                 >

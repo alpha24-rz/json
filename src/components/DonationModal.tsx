@@ -50,8 +50,8 @@ export default function DonationModal({
 
         {/* Header */}
         <div className="text-center space-y-2 mb-6">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#08CB00]/15 text-[#08CB00] mb-1">
-            <Coffee className="w-6 h-6 text-[#08CB00]" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#9BEC00]/15 text-[#9BEC00] mb-1">
+            <Coffee className="w-6 h-6 text-[#9BEC00]" />
           </div>
           <h3 className="text-xl font-bold text-neutral-900">
             Traktir Kopi Pengembang
@@ -94,7 +94,7 @@ export default function DonationModal({
             )}
           </div>
           <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-neutral-700">
-            <Coffee className="w-4 h-4 text-[#08CB00]" />
+            <Coffee className="w-4 h-4 text-[#9BEC00]" />
             <span>Scan QRIS / Buka Saweria</span>
           </div>
           {donationNote && (
@@ -115,8 +115,8 @@ export default function DonationModal({
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-[#08CB00]" />
-                <span className="text-[#08CB00]">Disalin!</span>
+                <Check className="w-3.5 h-3.5 text-[#9BEC00]" />
+                <span className="text-[#9BEC00]">Disalin!</span>
               </>
             ) : (
               <>
@@ -132,7 +132,7 @@ export default function DonationModal({
           href={targetLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#08CB00] hover:bg-[#07b500] text-black font-bold rounded-xl shadow-md transition glow-green-sm"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold rounded-xl shadow-md transition glow-green-sm"
         >
           <span>Buka Halaman Saweria / Traktir</span>
           <ExternalLink className="w-4 h-4" />
