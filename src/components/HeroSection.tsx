@@ -30,14 +30,7 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-60 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00] animate-pulse" />
-            <span className="text-xs font-bold text-neutral-800 tracking-wide uppercase">
-              100% Free & Open Source Catalog
-            </span>
-          </div>
+
 
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto space-y-4">

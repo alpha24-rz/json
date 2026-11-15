@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DevShowroom — Showcase Website & Source Code Gratis",
+  title: "Json — Showcase Website & Source Code Gratis",
   description:
     "Katalog sistem web, template, dan source code gratis berkualitas tinggi karya developer Indonesia. Dilengkapi live demo, akses kode GitHub, dan QR Donasi.",
   keywords: [

@@ -95,7 +95,7 @@ function initializeSchema(db: DatabaseSync) {
     `);
     insertSettings.run(
       "site",
-      "Koleksi Proyek & Kode Sumber Gratis",
+      "Json",
       "Katalog aplikasi web, template, dan sistem open source gratis karya developer Indonesia. Anda bebas mencoba live demo dan mengunduh seluruh source code secara cuma-cuma.",
       "Developer Showcase",
       "Membangun berbagai sistem web dan aplikasi siap pakai untuk komunitas developer dan publik secara 100% gratis.",

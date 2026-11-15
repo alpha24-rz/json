@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Code2, Heart, Bell, Menu, X, ShieldCheck } from "lucide-react";
+import { Heart, Bell, Menu, X, ShieldCheck } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 import SubscribeModal from "./SubscribeModal";
@@ -32,19 +32,11 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-neutral-950 flex items-center justify-center text-white font-black text-base shadow-sm group-hover:scale-105 transition">
-              <Code2 className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-neutral-900 tracking-tight text-base sm:text-lg flex items-center gap-1.5">
-                {siteTitle}
-                <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
-              </span>
-              <span className="text-[10px] tracking-wider uppercase font-semibold text-neutral-400 -mt-0.5">
-                Free & Open Source
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <span className="font-black text-neutral-950 tracking-tight text-2xl group-hover:opacity-80 transition flex items-center">
+              Json
+              <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

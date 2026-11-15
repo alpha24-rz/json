@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Code2, Heart, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Heart, ShieldCheck, ArrowUpRight } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 
@@ -36,13 +36,10 @@ export default function Footer({
             
             {/* Col 1: Brand */}
             <div className="md:col-span-2 space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-neutral-950 font-black">
-                  <Code2 className="w-4 h-4 text-neutral-950" />
-                </div>
-                <span className="font-extrabold text-lg tracking-tight">
-                  {siteTitle}
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1.5 shadow-[0_0_8px_#08CB00]"></span>
+              <div className="flex items-center">
+                <span className="font-black text-2xl tracking-tight text-white flex items-center">
+                  Json
+                  <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
                 </span>
               </div>
               <p className="text-xs text-neutral-400 max-w-md leading-relaxed">

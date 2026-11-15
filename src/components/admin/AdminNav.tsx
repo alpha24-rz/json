@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { Code2, FolderGit2, Settings, LogOut, ExternalLink } from "lucide-react";
+import { FolderGit2, Settings, LogOut, ExternalLink } from "lucide-react";
 
 export default function AdminNav() {
   const router = useRouter();
@@ -36,12 +36,11 @@ export default function AdminNav() {
         {/* Brand */}
         <div className="flex items-center gap-6">
           <Link href="/admin" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-neutral-950 flex items-center justify-center text-white font-black">
-              <Code2 className="w-4 h-4 text-[#08CB00]" />
-            </div>
-            <span className="font-extrabold text-neutral-950 text-base">
-              Admin Panel
+            <span className="font-black text-neutral-950 text-xl tracking-tight flex items-center">
+              Json
+              <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
             </span>
+            <span className="text-xs text-neutral-400 font-medium">/ Admin</span>
           </Link>
 
           {/* Nav Items */}
