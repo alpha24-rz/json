@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ArrowDown, Heart } from "lucide-react";
 import DonationModal from "./DonationModal";
+import Orb from "./Orb";
 
 interface HeroSectionProps {
   totalProjects: number;
@@ -22,14 +23,31 @@ export default function HeroSection({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-16 sm:py-24">
-        {/* Subtle decorative background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-60 pointer-events-none" />
+      <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-20 sm:py-28">
+        {/* Animated Background Orb */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none opacity-45">
+          <div className="w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] shrink-0">
+            <Orb
+              colors={["#08CB00", "#22c55e", "#111827"]}
+              backgroundColor="#ffffff"
+              size={1}
+              glow={1.3}
+              bleed={0.8}
+              hoverIntensity={0.9}
+              trail={1}
+              rotateOnHover
+              followCursor
+            />
+          </div>
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        {/* Subtle decorative background pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none z-0" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-neutral-200/90 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00] animate-pulse" />
             <span className="text-xs font-bold text-neutral-800 tracking-wide uppercase">
               100% Free & Open Source Catalog
@@ -72,20 +90,20 @@ export default function HeroSection({
           </div>
 
           {/* Key Value Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-8 border-t border-neutral-100">
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-8 border-t border-neutral-200/60">
+            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
               <div className="text-2xl font-black text-neutral-900">{totalProjects}+</div>
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Proyek Siap Pakai</div>
             </div>
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
               <div className="text-2xl font-black text-[#08CB00]">GRATIS</div>
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Bebas Unduh & Pakai</div>
             </div>
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
               <div className="text-2xl font-black text-neutral-900">Live Demo</div>
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Coba Tanpa Setup</div>
             </div>
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
               <div className="text-2xl font-black text-neutral-900">QR Donasi</div>
               <div className="text-xs text-neutral-500 font-medium mt-0.5">Dukung Pembuat</div>
             </div>
