@@ -67,27 +67,27 @@ const TECH_LIST: TechItem[] = [
 
 export default function TechStackMarquee() {
   return (
-    <section className="w-full bg-neutral-950 text-white border-t border-neutral-900 py-8 sm:py-10 overflow-hidden">
+    <section className="w-full bg-neutral-950 text-white border-t border-neutral-900 py-10 sm:py-14 overflow-hidden">
       {/* Marquee Strip with Left/Right Gradient Fade */}
       <div className="relative w-full overflow-hidden mask-gradient-x">
-        <div className="animate-marquee items-center gap-10 sm:gap-14 py-2">
+        <div className="animate-marquee items-center gap-12 sm:gap-16 py-2">
           {/* First loop */}
           {TECH_LIST.map((tech, idx) => (
             <div
               key={`tech-1-${idx}`}
-              className="flex items-center gap-2.5 text-neutral-400 hover:text-white transition-colors duration-200 shrink-0 cursor-default group"
+              className="flex items-center gap-3 sm:gap-3.5 text-neutral-400 hover:text-white transition-colors duration-200 shrink-0 cursor-default group"
             >
               <div className="text-neutral-400 group-hover:text-[#9BEC00] transition-colors duration-200">
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-current shrink-0"
+                  className="w-7 h-7 sm:w-8 sm:h-8 fill-current shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d={tech.path} />
                 </svg>
               </div>
-              <span className="text-sm sm:text-base font-bold tracking-tight">
+              <span className="text-base sm:text-lg font-bold tracking-tight">
                 {tech.name}
               </span>
             </div>
@@ -97,19 +97,19 @@ export default function TechStackMarquee() {
           {TECH_LIST.map((tech, idx) => (
             <div
               key={`tech-2-${idx}`}
-              className="flex items-center gap-2.5 text-neutral-400 hover:text-white transition-colors duration-200 shrink-0 cursor-default group"
+              className="flex items-center gap-3 sm:gap-3.5 text-neutral-400 hover:text-white transition-colors duration-200 shrink-0 cursor-default group"
             >
               <div className="text-neutral-400 group-hover:text-[#9BEC00] transition-colors duration-200">
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-current shrink-0"
+                  className="w-7 h-7 sm:w-8 sm:h-8 fill-current shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d={tech.path} />
                 </svg>
               </div>
-              <span className="text-sm sm:text-base font-bold tracking-tight">
+              <span className="text-base sm:text-lg font-bold tracking-tight">
                 {tech.name}
               </span>
             </div>
