@@ -46,7 +46,7 @@ export default function HeroSection({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-16 sm:py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 pt-4 sm:pt-6 lg:pt-8 pb-14 sm:pb-18">
         {/* Subtle decorative background pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none z-0" />
 
@@ -55,11 +55,6 @@ export default function HeroSection({
 
             {/* Left Column: Headline, Description & CTAs */}
             <div className="lg:col-span-6 text-left space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100/90 border border-neutral-200/90 text-xs font-semibold text-neutral-700 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-[#9BEC00] shadow-[0_0_8px_#9BEC00]" />
-                <span>Katalog Source Code & Sistem Web Siap Pakai</span>
-              </div>
 
               {/* Main Headline */}
               <div className="space-y-4">
