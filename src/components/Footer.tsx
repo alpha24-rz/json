@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Heart } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 
@@ -94,24 +94,17 @@ export default function Footer({
               </ul>
             </div>
 
-            {/* Col 3: Pengembang & Admin */}
+            {/* Col 3: Pengembang & Lisensi */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-300">
-                Pengembang & Admin
+                Pengembang
               </h4>
               <ul className="space-y-2 text-xs text-neutral-400">
                 <li className="text-neutral-300 font-medium">
                   Karya oleh: <span className="text-white font-bold">{authorName}</span>
                 </li>
-                <li>
-                  <Link 
-                    href="/admin" 
-                    className="inline-flex items-center gap-1 text-neutral-400 hover:text-[#08CB00] transition"
-                  >
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Login Dashboard Admin</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </Link>
+                <li className="text-neutral-500">
+                  Lisensi Open Source MIT
                 </li>
               </ul>
             </div>

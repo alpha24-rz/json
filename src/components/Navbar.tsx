@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Heart, Bell, Menu, X, ShieldCheck } from "lucide-react";
+import { Heart, Bell, Menu, X } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 import SubscribeModal from "./SubscribeModal";
@@ -64,13 +64,6 @@ export default function Navbar({
                 <span>GitHub</span>
               </a>
             )}
-            <Link
-              href="/admin"
-              className="flex items-center gap-1 text-xs font-medium text-neutral-400 hover:text-neutral-900 transition"
-            >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Admin</span>
-            </Link>
           </nav>
 
           {/* Action CTAs */}
@@ -141,14 +134,6 @@ export default function Navbar({
                 <span>GitHub Profil</span>
               </a>
             )}
-            <Link
-              href="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 py-2 text-sm font-medium text-neutral-500"
-            >
-              <ShieldCheck className="w-4 h-4" />
-              <span>Dashboard Admin</span>
-            </Link>
             <div className="pt-2">
               <button
                 onClick={() => {
