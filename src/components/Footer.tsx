@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Coffee, ArrowRight, ArrowUp, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Coffee, ArrowUp, ShieldCheck } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 import DonationModal from "./DonationModal";
 import { MAIN_CATEGORIES } from "@/lib/categories";
@@ -27,34 +27,6 @@ export default function Footer({
   donationNote,
 }: FooterProps) {
   const [isDonationOpen, setIsDonationOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [subscribeMsg, setSubscribeMsg] = useState("");
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !email.includes("@")) return;
-    setSubscribeStatus("loading");
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setSubscribeStatus("success");
-        setSubscribeMsg("Terima kasih! Anda akan menerima update produk baru.");
-        setEmail("");
-      } else {
-        setSubscribeStatus("error");
-        setSubscribeMsg(data.error || "Gagal berlangganan.");
-      }
-    } catch {
-      setSubscribeStatus("error");
-      setSubscribeMsg("Terjadi kesalahan jaringan.");
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -68,63 +40,6 @@ export default function Footer({
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Top CTA & Newsletter Banner */}
-          <div className="relative rounded-3xl bg-neutral-900/50 border border-neutral-800/80 p-8 sm:p-10 overflow-hidden mb-16 backdrop-blur-xs">
-            {/* Ambient accent green glow in corner */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#9BEC00]/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Left Column: Heading & Value Prop */}
-              <div className="lg:col-span-7 space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Koleksi Produk Digital Siap Pakai
-                </h3>
-                <p className="text-sm text-neutral-400 max-w-xl leading-relaxed">
-                  Semua source code, template landing page, dan spreadsheet bebas Anda unduh, modifikasi, dan gunakan untuk proyek komersial maupun pribadi tanpa biaya lisensi.
-                </p>
-              </div>
-
-              {/* Right Column: Newsletter Form */}
-              <div className="lg:col-span-5">
-                <form onSubmit={handleSubscribe} className="space-y-2">
-                  <p className="text-xs font-semibold text-neutral-300">
-                    Dapatkan notifikasi ketika ada produk gratis baru dirilis:
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="nama@email.com"
-                      disabled={subscribeStatus === "loading" || subscribeStatus === "success"}
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-sm text-white placeholder-neutral-500 focus:outline-hidden focus:border-[#9BEC00] transition disabled:opacity-50"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      disabled={subscribeStatus === "loading" || subscribeStatus === "success"}
-                      className="px-4 py-2.5 rounded-xl bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold text-sm transition shadow-sm hover:shadow-md shrink-0 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
-                    >
-                      <span>{subscribeStatus === "loading" ? "..." : "Langganan"}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                  {subscribeStatus === "success" && (
-                    <p className="text-xs text-[#9BEC00] flex items-center gap-1 pt-1 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>{subscribeMsg}</span>
-                    </p>
-                  )}
-                  {subscribeStatus === "error" && (
-                    <p className="text-xs text-red-400 pt-1 font-medium">{subscribeMsg}</p>
-                  )}
-                </form>
-              </div>
-
-            </div>
-          </div>
-
           {/* Navigation Links Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12">
             
