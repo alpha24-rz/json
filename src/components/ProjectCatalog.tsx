@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
 import {
@@ -12,29 +13,32 @@ import {
   FileSpreadsheet,
   ArrowRight
 } from "lucide-react";
+import { MAIN_CATEGORIES } from "@/lib/categories";
 
 interface ProjectCatalogProps {
   initialProjects: Project[];
   categories: string[];
   globalDonationLink?: string;
   globalDonationQr?: string;
+  activeCategory?: string;
+  title?: string;
 }
 
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 6;
 
-const MAIN_CATEGORIES = [
-  { id: "Landing Page", label: "Landing Page", icon: Layout },
-  { id: "E-Commerce", label: "E-Commerce", icon: ShoppingBag },
-  { id: "Excel & Spreadsheet", label: "Excel & Spreadsheet", icon: FileSpreadsheet },
-];
+const CATEGORY_ICONS: Record<string, React.ElementType> = {
+  "Landing Page": Layout,
+  "E-Commerce": ShoppingBag,
+  "Excel & Spreadsheet": FileSpreadsheet,
+};
 
 export default function ProjectCatalog({
   initialProjects,
   globalDonationLink,
   globalDonationQr,
+  activeCategory,
+  title = "Discover Something Great",
 }: ProjectCatalogProps) {
-  // Start with Landing Page as requested
-  const [selectedCategory, setSelectedCategory] = useState("Landing Page");
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_COUNT);
 
@@ -51,9 +55,9 @@ export default function ProjectCatalog({
   const filteredProjects = useMemo(() => {
     return initialProjects
       .filter((project) => {
-        // Category filter: "Browse All" shows all projects
-        if (selectedCategory !== "Browse All" && selectedCategory !== "Semua") {
-          if (project.category !== selectedCategory) {
+        // Only filter by category if activeCategory is set and not "All" / "Browse All"
+        if (activeCategory && activeCategory !== "All" && activeCategory !== "Browse All" && activeCategory !== "Semua") {
+          if (project.category !== activeCategory) {
             return false;
           }
         }
@@ -69,7 +73,7 @@ export default function ProjectCatalog({
         if (a.is_featured !== b.is_featured) return a.is_featured ? -1 : 1;
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       });
-  }, [initialProjects, selectedCategory, selectedTech]);
+  }, [initialProjects, activeCategory, selectedTech]);
 
   // Projects to display (Curated limit)
   const displayedProjects = useMemo(() => {
@@ -87,35 +91,31 @@ export default function ProjectCatalog({
 
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight shrink-0">
-            Discover Something Great
+            {title}
           </h2>
 
-          {/* Categories, Browse All & Sort Selector */}
+          {/* Categories & Browse All Navigation */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
 
-            {/* Category Filter Pills with Icons (Clean without number counts) */}
+            {/* Category Filter Pills (Navigation Links, Inactive by default on Homepage) */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
               {MAIN_CATEGORIES.map((tab) => {
-                const Icon = tab.icon;
-                const isActive = selectedCategory === tab.id;
+                const Icon = CATEGORY_ICONS[tab.id] || Layout;
+                const isActive = activeCategory === tab.id;
 
                 return (
-                  <button
+                  <Link
                     key={tab.id}
-                    onClick={() => {
-                      setSelectedCategory(tab.id);
-                      setSelectedTech(null);
-                      setVisibleCount(INITIAL_COUNT);
-                    }}
+                    href={`/category/${tab.slug}`}
                     className={`flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all duration-200 border cursor-pointer ${
                       isActive
                         ? "bg-neutral-950 text-white border-neutral-950 shadow-xs"
-                        : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:text-neutral-950 hover:bg-neutral-50"
+                        : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-900 hover:text-neutral-950 hover:bg-neutral-50"
                     }`}
                   >
                     <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#9BEC00]" : "text-neutral-400"}`} />
                     <span>{tab.label}</span>
-                  </button>
+                  </Link>
                 );
               })}
             </div>
@@ -123,15 +123,11 @@ export default function ProjectCatalog({
             {/* Subtle Divider */}
             <div className="hidden sm:block w-px h-5 bg-neutral-200 mx-1 shrink-0" />
 
-            {/* Browse All: Clean text-only without box badge */}
-            <button
-              onClick={() => {
-                setSelectedCategory("Browse All");
-                setSelectedTech(null);
-                setVisibleCount(INITIAL_COUNT);
-              }}
+            {/* Browse All: Clean text-only navigation */}
+            <Link
+              href="/category/all"
               className={`group inline-flex items-center gap-1.5 py-1.5 px-2 text-xs font-bold transition-all duration-200 shrink-0 cursor-pointer ${
-                selectedCategory === "Browse All"
+                activeCategory === "All" || activeCategory === "Browse All"
                   ? "text-neutral-950"
                   : "text-neutral-500 hover:text-neutral-950"
               }`}
@@ -140,7 +136,7 @@ export default function ProjectCatalog({
                 Browse All
                 <span
                   className={`absolute -bottom-0.5 left-0 h-[2px] transition-all duration-300 ${
-                    selectedCategory === "Browse All"
+                    activeCategory === "All" || activeCategory === "Browse All"
                       ? "w-full bg-[#9BEC00]"
                       : "w-0 group-hover:w-full bg-neutral-900"
                   }`}
@@ -148,48 +144,17 @@ export default function ProjectCatalog({
               </span>
               <ArrowRight
                 className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 ${
-                  selectedCategory === "Browse All"
+                  activeCategory === "All" || activeCategory === "Browse All"
                     ? "text-[#9BEC00] translate-x-0.5"
                     : "text-neutral-400 group-hover:text-neutral-950"
                 }`}
               />
-            </button>
+            </Link>
 
           </div>
         </div>
 
-        {/* Optional Quick Tech Tags */}
-        {allTechList.length > 0 && (
-          <div className="flex items-center gap-1.5 flex-wrap text-[11px] text-neutral-500 -mt-3">
-            <span className="font-medium mr-1">Filter Tech:</span>
-            {allTechList.map((tech) => (
-              <button
-                key={tech}
-                onClick={() => {
-                  setSelectedTech(selectedTech === tech ? null : tech);
-                  setVisibleCount(INITIAL_COUNT);
-                }}
-                className={`px-2.5 py-0.5 rounded-lg border transition ${selectedTech === tech
-                    ? "bg-[#9BEC00] text-black font-bold border-[#9BEC00]"
-                    : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
-                  }`}
-              >
-                {tech}
-              </button>
-            ))}
-            {selectedTech && (
-              <button
-                onClick={() => {
-                  setSelectedTech(null);
-                  setVisibleCount(INITIAL_COUNT);
-                }}
-                className="text-neutral-400 hover:text-red-600 underline ml-1"
-              >
-                Reset tag
-              </button>
-            )}
-          </div>
-        )}
+
 
         {/* Project Cards Grid */}
         {displayedProjects.length > 0 ? (
@@ -245,21 +210,17 @@ export default function ProjectCatalog({
               <FolderOpen className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-neutral-800">
-              Belum ada produk di kategori {selectedCategory}
+              {activeCategory ? `Belum ada produk di kategori ${activeCategory}` : "Belum ada produk yang ditemukan"}
             </h3>
             <p className="text-xs text-neutral-500 max-w-sm">
               Klik &quot;Browse All&quot; untuk melihat seluruh koleksi produk digital yang tersedia.
             </p>
-            <button
-              onClick={() => {
-                setSelectedCategory("Browse All");
-                setSelectedTech(null);
-                setVisibleCount(INITIAL_COUNT);
-              }}
+            <Link
+              href="/category/all"
               className="px-4 py-2 bg-neutral-900 text-white rounded-xl text-xs font-semibold hover:bg-neutral-800 transition"
             >
               Browse All
-            </button>
+            </Link>
           </div>
         )}
       </div>
