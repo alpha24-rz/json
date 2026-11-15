@@ -257,22 +257,15 @@ export default function Footer({
               &copy; {new Date().getFullYear()} {siteTitle}. Open source software under MIT License.
             </p>
 
-            <div className="flex items-center gap-6">
-              <p className="flex items-center gap-1.5">
-                <span>Dibuat dengan Next.js & Tailwind CSS</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9BEC00]"></span>
-              </p>
-
-              {/* Back to top button */}
-              <button
-                onClick={scrollToTop}
-                className="group inline-flex items-center gap-1 text-neutral-400 hover:text-white transition font-semibold cursor-pointer"
-                title="Kembali ke bagian atas halaman"
-              >
-                <span>Atas</span>
-                <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
-            </div>
+            {/* Back to top button */}
+            <button
+              onClick={scrollToTop}
+              className="group inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition font-semibold cursor-pointer"
+              title="Kembali ke bagian atas halaman"
+            >
+              <span>Kembali ke Atas</span>
+              <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
           </div>
 
           {/* Massive Subtle Background Brand Watermark (Linear/Vercel Style) */}
