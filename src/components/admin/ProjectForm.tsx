@@ -385,14 +385,13 @@ export default function ProjectForm({ initialData, isEdit }: ProjectFormProps) {
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full px-3 py-2 text-xs bg-neutral-50 border border-neutral-200 rounded-xl focus:bg-white focus:outline-hidden font-medium cursor-pointer"
               >
-                <option value="Fullstack Web">Fullstack Web</option>
-                <option value="E-Commerce">E-Commerce</option>
-                <option value="POS & Bisnis">POS & Bisnis</option>
-                <option value="Dashboard & SaaS">Dashboard & SaaS</option>
-                <option value="Developer Tools">Developer Tools</option>
-                <option value="Mobile App / Web">Mobile App / Web</option>
                 <option value="Landing Page">Landing Page</option>
-                <option value="API / Backend">API / Backend</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="AI & Chatbot RAG">AI & Chatbot RAG</option>
+                <option value="Excel & Spreadsheet">Excel & Spreadsheet</option>
+                <option value="System & Dashboard">System & Dashboard</option>
+                <option value="Developer Tools">Developer Tools</option>
+                <option value="Fullstack Web">Fullstack Web</option>
               </select>
             </div>
           </div>

@@ -207,7 +207,7 @@ cd kasirkita
 npm install
 npm run dev
 \`\`\``,
-      category: "POS & Bisnis",
+      category: "System & Dashboard",
       tech_stack: JSON.stringify(["React", "TypeScript", "Tailwind CSS", "IndexedDB", "Node.js"]),
       thumbnail_url: "https://images.unsplash.com/photo-1556742049-0a67e5572293?q=80&w=1200&auto=format&fit=crop",
       demo_url: "https://demo.example.com/kasirkita",
@@ -270,7 +270,7 @@ cd adminpulse
 npm install
 npm run dev
 \`\`\``,
-      category: "Dashboard & SaaS",
+      category: "System & Dashboard",
       tech_stack: JSON.stringify(["Next.js 15", "Tailwind CSS", "Chart.js", "Lucide Icons"]),
       thumbnail_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
       demo_url: "https://demo.example.com/adminpulse",
@@ -282,6 +282,75 @@ npm run dev
       is_published: 1,
       views_count: 304,
       downloads_count: 116,
+    },
+    {
+      id: "proj-5",
+      title: "NovaLaunch — High-Converting Startup Landing Page",
+      slug: "novalaunch-startup-landing-page",
+      tagline: "Template landing page modern dengan animasi halus, pricing table, dan formulir lead capture.",
+      description: "NovaLaunch dirancang khusus untuk peluncuran produk digital, startup, dan aplikasi mobile. Memiliki desain minimalist monochrome yang elegan, optimized score 100 di Google Lighthouse, dan mudah dikustomisasi.",
+      content_markdown: `## Fitur NovaLaunch
+- Responsive Design
+- Clean Tailwind Typography
+- Ready for Next.js App Router`,
+      category: "Landing Page",
+      tech_stack: JSON.stringify(["Next.js 15", "Tailwind CSS", "TypeScript", "Framer Motion"]),
+      thumbnail_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+      demo_url: "https://demo.example.com/novalaunch",
+      github_url: "https://github.com/example/novalaunch",
+      download_url: "https://github.com/example/novalaunch/archive/refs/heads/main.zip",
+      donation_qr_url: "",
+      donation_link: "https://saweria.co/demo",
+      is_featured: 1,
+      is_published: 1,
+      views_count: 195,
+      downloads_count: 62,
+    },
+    {
+      id: "proj-6",
+      title: "DocuRAG — Chatbot AI Tanya Jawab Dokumen PDF & File",
+      slug: "docurag-chatbot-ai-rag",
+      tagline: "Sistem RAG (Retrieval-Augmented Generation) lokal untuk chat interaktif dengan file PDF/dokumen Anda.",
+      description: "DocuRAG memungkinkan pengguna mengunggah dokumen (PDF, TXT, DOCX) lalu mengajukan pertanyaan langsung dengan jawaban akurat berdasarkan isi dokumen beserta sitasi nomor halaman secara real-time.",
+      content_markdown: `## Fitur DocuRAG
+- RAG Pipeline with ChromaDB
+- Multi-document Parsing
+- Source Citations & Highlight`,
+      category: "AI & Chatbot RAG",
+      tech_stack: JSON.stringify(["Python", "LangChain", "FastAPI", "ChromaDB", "React"]),
+      thumbnail_url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+      demo_url: "https://demo.example.com/docurag",
+      github_url: "https://github.com/example/docurag",
+      download_url: "https://github.com/example/docurag/archive/refs/heads/main.zip",
+      donation_qr_url: "",
+      donation_link: "https://saweria.co/demo",
+      is_featured: 1,
+      is_published: 1,
+      views_count: 380,
+      downloads_count: 145,
+    },
+    {
+      id: "proj-7",
+      title: "FinTrack Pro — Template Excel Keuangan, Cash Flow & Budgeting UMKM",
+      slug: "fintrack-pro-template-excel-keuangan",
+      tagline: "Template spreadsheet otomatis untuk pencatatan arus kas, laba rugi, dan analitik keuangan bisnis.",
+      description: "Template Microsoft Excel & Google Sheets siap pakai yang dirancang dengan formula otomatis, grafik visual ringkasan bulanan, pelacakan pengeluaran kategori, serta kalkulator margin laba tanpa perlu coding.",
+      content_markdown: `## Fitur FinTrack Pro
+- Dashboard Keuangan Otomatis
+- Rekap Laba/Rugi Bulanan
+- Formula Siap Pakai (No VBA needed)`,
+      category: "Excel & Spreadsheet",
+      tech_stack: JSON.stringify(["Microsoft Excel", "Google Sheets", "Financial Modeling"]),
+      thumbnail_url: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+      demo_url: "https://docs.google.com/spreadsheets/demo",
+      github_url: "https://github.com/example/fintrack-excel",
+      download_url: "https://example.com/downloads/fintrack-pro.xlsx",
+      donation_qr_url: "",
+      donation_link: "https://saweria.co/demo",
+      is_featured: 0,
+      is_published: 1,
+      views_count: 310,
+      downloads_count: 158,
     }
   ];
 
@@ -372,10 +441,21 @@ export function getProjectById(id: string): Project | null {
   return formatProjectRow(row);
 }
 
+export const DEFAULT_CATEGORIES = [
+  "Landing Page",
+  "E-Commerce",
+  "AI & Chatbot RAG",
+  "Excel & Spreadsheet",
+  "System & Dashboard",
+  "Developer Tools",
+];
+
 export function getAllCategories(): string[] {
   const db = getDatabase();
   const rows = db.prepare("SELECT DISTINCT category FROM projects WHERE is_published = 1").all() as { category: string }[];
-  return ["Semua", ...rows.map(r => r.category).filter(Boolean)];
+  const dbCategories = rows.map(r => r.category).filter(Boolean);
+  const combined = Array.from(new Set([...DEFAULT_CATEGORIES, ...dbCategories]));
+  return ["Semua", ...combined];
 }
 
 export function createProject(data: Omit<Project, "id" | "views_count" | "downloads_count" | "created_at" | "updated_at">): Project {
