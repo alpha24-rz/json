@@ -36,10 +36,10 @@ export default function Footer({
             
             {/* Col 1: Brand */}
             <div className="md:col-span-2 space-y-4">
-              <div className="flex items-center">
-                <span className="font-black text-2xl tracking-tight text-white flex items-center">
+              <div className="flex items-center pl-2">
+                <span className="relative font-black text-2xl tracking-tight text-white">
+                  <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
                   Json
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
                 </span>
               </div>
               <p className="text-xs text-neutral-400 max-w-md leading-relaxed">

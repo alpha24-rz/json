@@ -35,10 +35,10 @@ export default function AdminNav() {
         
         {/* Brand */}
         <div className="flex items-center gap-6">
-          <Link href="/admin" className="flex items-center gap-2">
-            <span className="font-black text-neutral-950 text-xl tracking-tight flex items-center">
+          <Link href="/admin" className="flex items-center gap-2 pl-2">
+            <span className="relative font-black text-neutral-950 text-xl tracking-tight">
+              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
               Json
-              <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
             </span>
             <span className="text-xs text-neutral-400 font-medium">/ Admin</span>
           </Link>

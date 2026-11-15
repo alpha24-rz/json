@@ -30,33 +30,33 @@ export default function Navbar({
     <>
       <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          
+
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center group">
-            <span className="font-black text-neutral-950 tracking-tight text-2xl group-hover:opacity-80 transition flex items-center">
+          <Link href="/" className="flex items-center group pl-2">
+            <span className="relative font-black text-neutral-950 tracking-tight text-2xl group-hover:opacity-80 transition">
+              <span className="absolute top-1 -left-2.5 w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00]"></span>
               Json
-              <span className="inline-block w-2 h-2 rounded-full bg-[#08CB00] ml-1 shadow-[0_0_8px_#08CB00]"></span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link 
-              href="/#catalog" 
+            <Link
+              href="/#catalog"
               className="text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition"
             >
               Katalog Proyek
             </Link>
-            <Link 
-              href="/#about" 
+            <Link
+              href="/#about"
               className="text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition"
             >
               Tentang
             </Link>
             {githubProfile && (
-              <a 
-                href={githubProfile} 
-                target="_blank" 
+              <a
+                href={githubProfile}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition"
               >
@@ -64,8 +64,8 @@ export default function Navbar({
                 <span>GitHub</span>
               </a>
             )}
-            <Link 
-              href="/admin" 
+            <Link
+              href="/admin"
               className="flex items-center gap-1 text-xs font-medium text-neutral-400 hover:text-neutral-900 transition"
             >
               <ShieldCheck className="w-3.5 h-3.5" />
