@@ -6,8 +6,6 @@ import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
 import {
   FolderOpen,
-  ChevronDown,
-  ChevronUp,
   Layout,
   ShoppingBag,
   FileSpreadsheet,
@@ -166,35 +164,21 @@ export default function ProjectCatalog({
               ))}
             </div>
 
-            {/* Load More / Expand Action */}
-            {hasMore ? (
-              <div className="flex flex-col items-center justify-center pt-8 pb-4">
-                <button
-                  onClick={() => setVisibleCount((prev) => prev + 3)}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-neutral-300 hover:border-neutral-950 text-neutral-950 font-bold text-sm shadow-xs hover:shadow-md transition-all duration-200 group"
+            {/* Bottom Browse All Navigation (Clean text-only without box badge) */}
+            {hasMore && (
+              <div className="flex flex-col items-center justify-center pt-10 pb-4">
+                <Link
+                  href="/category/all"
+                  className="group inline-flex items-center gap-2 text-sm sm:text-base font-bold text-neutral-900 hover:text-black transition-colors py-2 px-1 cursor-pointer"
                 >
-                  <span>Lihat Produk Lainnya</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 font-semibold group-hover:bg-[#9BEC00] group-hover:text-black transition">
-                    +{filteredProjects.length - visibleCount}
+                  <span className="relative pb-0.5">
+                    Browse All
+                    <span className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full bg-[#9BEC00] transition-all duration-300" />
                   </span>
-                  <ChevronDown className="w-4 h-4 text-neutral-600 group-hover:translate-y-0.5 transition-transform" />
-                </button>
+                  <ArrowRight className="w-4 h-4 text-neutral-500 group-hover:text-black group-hover:translate-x-1.5 transition-transform duration-200" />
+                </Link>
               </div>
-            ) : filteredProjects.length > INITIAL_COUNT ? (
-              <div className="flex flex-col items-center justify-center pt-8 pb-4">
-                <button
-                  onClick={() => {
-                    setVisibleCount(INITIAL_COUNT);
-                    const el = document.getElementById("catalog");
-                    el?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-100 hover:bg-neutral-200/80 text-neutral-600 text-xs font-semibold transition"
-                >
-                  <span>Tampilkan Lebih Sedikit</span>
-                  <ChevronUp className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : null}
+            )}
           </>
         ) : (
           /* Empty State */
