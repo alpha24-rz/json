@@ -48,13 +48,13 @@ export default function HeroSection({
   return (
     <>
       <section className="relative overflow-hidden bg-white border-b border-neutral-200/80 py-20 sm:py-28">
-        {/* Animated Background Orb - Exactly Centered in Hero Section */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-45">
+        {/* Animated Background Orb - Positioned Higher Behind Headline */}
+        <div className="absolute top-0 left-0 right-0 h-[520px] sm:h-[640px] -translate-y-8 sm:-translate-y-12 z-0 overflow-hidden pointer-events-none opacity-50 flex items-center justify-center">
           <Orb
             colors={["#9BEC00", "#a3e635", "#111827"]}
             backgroundColor="#ffffff"
-            size={0.55}
-            glow={1.05}
+            size={0.65}
+            glow={1.1}
             bleed={0.25}
             hoverIntensity={0.7}
             trail={1}
