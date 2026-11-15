@@ -2,6 +2,7 @@ import { getAllProjects, getAllCategories, getSiteSettings } from "@/lib/db";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProjectCatalog from "@/components/ProjectCatalog";
+import TechStackMarquee from "@/components/TechStackMarquee";
 import Footer from "@/components/Footer";
 
 export default async function HomePage() {
@@ -38,6 +39,9 @@ export default async function HomePage() {
           globalDonationLink={settings.global_donation_link}
           globalDonationQr={settings.global_donation_qr}
         />
+
+        {/* Tech Stack Marquee */}
+        <TechStackMarquee />
       </main>
 
       {/* Footer */}
