@@ -46,14 +46,6 @@ export default function HeroSection({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-neutral-200/90 shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#08CB00] shadow-[0_0_8px_#08CB00] animate-pulse" />
-            <span className="text-xs font-bold text-neutral-800 tracking-wide uppercase">
-              100% Free & Open Source Catalog
-            </span>
-          </div>
-
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-950 tracking-tight leading-[1.12]">
@@ -88,23 +80,34 @@ export default function HeroSection({
             </button>
           </div>
 
-          {/* Key Value Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-8 border-t border-neutral-200/60">
-            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
-              <div className="text-2xl font-black text-neutral-900">{totalProjects}+</div>
-              <div className="text-xs text-neutral-500 font-medium mt-0.5">Proyek Siap Pakai</div>
-            </div>
-            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
-              <div className="text-2xl font-black text-[#08CB00]">GRATIS</div>
-              <div className="text-xs text-neutral-500 font-medium mt-0.5">Bebas Unduh & Pakai</div>
-            </div>
-            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
-              <div className="text-2xl font-black text-neutral-900">Live Demo</div>
-              <div className="text-xs text-neutral-500 font-medium mt-0.5">Coba Tanpa Setup</div>
-            </div>
-            <div className="p-3 bg-white/80 backdrop-blur-xs rounded-xl border border-neutral-200/80">
-              <div className="text-2xl font-black text-neutral-900">Traktir Kopi</div>
-              <div className="text-xs text-neutral-500 font-medium mt-0.5">Dukung Pembuat</div>
+          {/* Tech Stack Ticker Bar */}
+          <div className="pt-8 border-t border-neutral-200/60 max-w-3xl mx-auto space-y-3">
+            <p className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider">
+              Dibangun dengan Arsitektur & Teknologi Modern
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {[
+                { name: "Next.js 15", tag: "App Router" },
+                { name: "React 19", tag: "Server Components" },
+                { name: "TypeScript", tag: "Type Safe" },
+                { name: "Tailwind CSS v4", tag: "Styling" },
+                { name: "SQLite & PostgreSQL", tag: "Database" },
+                { name: "Node.js", tag: "Runtime" },
+                { name: "Lucide Icons", tag: "Icons" },
+              ].map((tech) => (
+                <div
+                  key={tech.name}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/85 backdrop-blur-xs border border-neutral-200/90 shadow-2xs hover:border-neutral-900/40 hover:bg-white transition group"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#08CB00] shadow-[0_0_6px_#08CB00]" />
+                  <span className="text-xs font-bold text-neutral-800 group-hover:text-neutral-950">
+                    {tech.name}
+                  </span>
+                  <span className="text-[10px] text-neutral-400 font-medium">
+                    {tech.tag}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
