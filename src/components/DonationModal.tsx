@@ -95,7 +95,7 @@ export default function DonationModal({
           </div>
           <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-neutral-700">
             <Coffee className="w-4 h-4 text-[#9BEC00]" />
-            <span>Scan QRIS / Buka Saweria</span>
+            <span>Scan Kode QR</span>
           </div>
           {donationNote && (
             <p className="text-[11px] text-neutral-500 text-center mt-2 px-2">
@@ -134,7 +134,7 @@ export default function DonationModal({
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#9BEC00] hover:bg-[#88d400] text-black font-bold rounded-xl shadow-md transition glow-green-sm"
         >
-          <span>Buka Halaman Saweria / Traktir</span>
+          <span>Traktir Kopi Sekarang</span>
           <ExternalLink className="w-4 h-4" />
         </a>
       </div>

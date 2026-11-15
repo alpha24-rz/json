@@ -288,7 +288,7 @@ export default function ProjectDetailClient({
                 Suka dengan Proyek Ini?
               </h4>
               <p className="text-xs text-neutral-500 mt-1">
-                Bantu pengembang tetap bersemangat membagikan karya gratis dengan mentraktir kopi lewat Saweria atau QRIS.
+                Bantu pengembang tetap bersemangat membagikan karya gratis dengan mentraktir secangkir kopi.
               </p>
             </div>
             <button

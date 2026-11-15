@@ -102,7 +102,7 @@ function initializeSchema(db: DatabaseSync) {
       "https://github.com",
       "",
       "https://saweria.co/demo",
-      "Dukung kelanjutan pengembangan proyek dan server dengan berdonasi via QRIS / Saweria. Terima kasih atas apresiasinya!"
+      "Dukung kelanjutan pengembangan proyek dan server agar terus aktif. Terima kasih atas apresiasinya!"
     );
   }
 

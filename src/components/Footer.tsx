@@ -145,7 +145,7 @@ export default function Footer({
                 type="button"
                 onClick={() => setIsDonationOpen(true)}
                 className="group/coffee relative w-full p-3.5 rounded-2xl bg-neutral-900/90 hover:bg-neutral-900 border border-neutral-800 hover:border-[#9BEC00]/60 transition-all duration-300 text-left flex items-center gap-3.5 shadow-lg hover:shadow-[0_0_25px_rgba(155,236,0,0.18)] hover:-translate-y-0.5 cursor-pointer overflow-hidden"
-                title="Buka QRIS / Saweria Traktir Kopi"
+                title="Traktir Dulu Kopi"
               >
                 {/* Ambient glow on hover */}
                 <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-[#9BEC00]/10 rounded-full blur-xl group-hover/coffee:bg-[#9BEC00]/25 transition-all duration-500 pointer-events-none" />
@@ -170,10 +170,6 @@ export default function Footer({
                   <span className="text-[11px] text-neutral-400 group-hover/coffee:text-neutral-300 leading-tight mt-1 line-clamp-2">
                     Biar server & coding tetap ngebut!
                   </span>
-                  <div className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-[#9BEC00]">
-                    <span>Saweria / QRIS</span>
-                    <span className="transition-transform duration-200 group-hover/coffee:translate-x-0.5">→</span>
-                  </div>
                 </div>
               </button>
             </div>
