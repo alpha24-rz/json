@@ -46,3 +46,12 @@ export interface AdminUser {
   created_at: string;
 }
 
+export interface CoffeeSupporter {
+  id: string;
+  name: string;
+  coffee_count: number;
+  message: string;
+  created_at: string;
+}
+
+

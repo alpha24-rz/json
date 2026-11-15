@@ -2,7 +2,7 @@ import { DatabaseSync } from "node:sqlite";
 import path from "node:path";
 import fs from "node:fs";
 import bcrypt from "bcryptjs";
-import { Project, SiteSettings, Subscriber, AdminUser } from "./types";
+import { Project, SiteSettings, Subscriber, AdminUser, CoffeeSupporter } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 if (!fs.existsSync(DATA_DIR)) {
@@ -83,6 +83,39 @@ function initializeSchema(db: DatabaseSync) {
       created_at TEXT NOT NULL
     );
   `);
+
+  // 5. Coffee Supporters Table
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS coffee_supporters (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      coffee_count INTEGER DEFAULT 1,
+      message TEXT NOT NULL,
+      created_at TEXT NOT NULL
+    );
+  `);
+
+  // Seed default supporters if empty
+  const checkSupporters = db.prepare("SELECT COUNT(*) as count FROM coffee_supporters").get() as { count: number };
+  if (checkSupporters && checkSupporters.count === 0) {
+    const insertSupporter = db.prepare(`
+      INSERT INTO coffee_supporters (id, name, coffee_count, message, created_at)
+      VALUES (?, ?, ?, ?, ?)
+    `);
+    const defaultSupporters = [
+      ["sup-1", "Rian Pratama", 3, "Semangat terus bang! Template POS Toko ngebantu banget buat warung ortu di kampung 🙌", "2 jam lalu"],
+      ["sup-2", "Dimas Ariyanto", 5, "Kodingan Next.js-nya rapi & clean. Makasih banyak udah digratisin buat bahan belajar!", "5 jam lalu"],
+      ["sup-3", "Dev Bandung", 2, "Kopi hitam double shot buat nemenin begadang maintenance server ☕🔥 Respect!", "12 jam lalu"],
+      ["sup-4", "Siti Rahma", 4, "Automasi Sheets & Excel-nya juara! Sangat mempermudah rekap data bulanan.", "1 hari lalu"],
+      ["sup-5", "Fajar Kurniawan", 10, "Hemat waktu develop seminggu lebih. Sukses selalu buat karya-karya open source-nya!", "1 hari lalu"],
+      ["sup-6", "Hendri W.", 3, "UI dashboard analytics-nya keren & modern banget. Ditunggu update fitur selanjutnya!", "2 hari lalu"],
+      ["sup-7", "Budi Santoso", 2, "Sedekah kopi buat developer yang tulus berbagi ilmu untuk kemajuan anak bangsa 🚀", "3 hari lalu"],
+      ["sup-8", "Alif Maulana", 5, "WhatsApp Bot automation-nya langsung kepake buat broadcast di kantor. Mantap pol!", "4 hari lalu"],
+    ];
+    for (const [id, name, count, msg, time] of defaultSupporters) {
+      insertSupporter.run(id, name, count, msg, time);
+    }
+  }
 
   // Seed default site settings if not present
   const checkSettings = db.prepare("SELECT id FROM site_settings WHERE id = 'site'").get();
@@ -668,6 +701,47 @@ export function getAdminUser(username: string): AdminUser | null {
     username: row.username,
     password_hash: row.password_hash,
     created_at: row.created_at,
+  };
+}
+
+export function getAllCoffeeSupporters(): CoffeeSupporter[] {
+  const db = getDatabase();
+  try {
+    const rows = db.prepare("SELECT * FROM coffee_supporters").all() as any[];
+    return rows.map((r) => ({
+      id: r.id,
+      name: r.name,
+      coffee_count: Number(r.coffee_count) || 1,
+      message: r.message,
+      created_at: r.created_at,
+    }));
+  } catch {
+    return [];
+  }
+}
+
+export function addCoffeeSupporter(data: {
+  name: string;
+  coffee_count?: number;
+  message: string;
+}): CoffeeSupporter {
+  const db = getDatabase();
+  const id = `sup-${Date.now()}`;
+  const count = data.coffee_count && data.coffee_count > 0 ? data.coffee_count : 1;
+  const timeStr = "Baru saja";
+  
+  const stmt = db.prepare(`
+    INSERT INTO coffee_supporters (id, name, coffee_count, message, created_at)
+    VALUES (?, ?, ?, ?, ?)
+  `);
+  stmt.run(id, data.name.trim(), count, data.message.trim(), timeStr);
+
+  return {
+    id,
+    name: data.name.trim(),
+    coffee_count: count,
+    message: data.message.trim(),
+    created_at: timeStr,
   };
 }
 

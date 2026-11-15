@@ -1,4 +1,4 @@
-import { getAllProjects, getAllCategories, getSiteSettings } from "@/lib/db";
+import { getAllProjects, getAllCategories, getSiteSettings, getAllCoffeeSupporters } from "@/lib/db";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProjectCatalog from "@/components/ProjectCatalog";
@@ -9,6 +9,7 @@ export default async function HomePage() {
   const settings = getSiteSettings();
   const projects = getAllProjects({ onlyPublished: true });
   const categories = getAllCategories();
+  const supporters = getAllCoffeeSupporters();
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-neutral-900 selection:bg-[#9BEC00] selection:text-black">
@@ -40,8 +41,13 @@ export default async function HomePage() {
           globalDonationQr={settings.global_donation_qr}
         />
 
-        {/* Tech Stack Marquee */}
-        <TechStackMarquee />
+        {/* Coffee Supporters & Messages Marquee */}
+        <TechStackMarquee
+          supporters={supporters}
+          globalDonationLink={settings.global_donation_link}
+          globalDonationQr={settings.global_donation_qr}
+          donationNote={settings.donation_note}
+        />
       </main>
 
       {/* Footer */}
