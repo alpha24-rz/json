@@ -98,17 +98,10 @@ export default function ProjectCatalog({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
-              Discover Something Great
-            </h2>
-          </div>
-
-          {/* Quick Counter */}
-          <div className="text-xs font-medium text-neutral-500 bg-neutral-100 px-3.5 py-2 rounded-xl border border-neutral-200 self-start md:self-auto">
-            Menampilkan <strong className="text-neutral-900 font-bold">{displayedProjects.length}</strong> dari {filteredProjects.length} produk
-          </div>
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
+            Discover Something Great
+          </h2>
         </div>
 
         {/* Minimal Category & Sorting Bar */}
