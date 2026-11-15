@@ -19,7 +19,7 @@ interface FooterProps {
 
 export default function Footer({
   siteTitle = "Json",
-  authorName = "Developer",
+  authorName = "alpharz",
   authorBio = "Membangun sistem dan aplikasi open-source gratis.",
   githubProfile = "https://github.com",
   globalDonationLink = "https://saweria.co/demo",

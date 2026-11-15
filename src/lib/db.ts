@@ -97,7 +97,7 @@ function initializeSchema(db: DatabaseSync) {
       "site",
       "Json",
       "Katalog aplikasi web, template, dan sistem open source gratis karya developer Indonesia. Anda bebas mencoba live demo dan mengunduh seluruh source code secara cuma-cuma.",
-      "Developer Showcase",
+      "alpharz",
       "Membangun berbagai sistem web dan aplikasi siap pakai untuk komunitas developer dan publik secara 100% gratis.",
       "https://github.com",
       "",
@@ -584,9 +584,9 @@ export function getSiteSettings(): SiteSettings {
   if (!row) {
     return {
       id: "site",
-      site_title: "DevHub Showcase",
+      site_title: "Json",
       site_description: "Showcase Website & Source Code Gratis",
-      author_name: "Developer",
+      author_name: "alpharz",
       author_bio: "Fullstack Web Developer",
       github_profile: "https://github.com",
       global_donation_qr: "",
