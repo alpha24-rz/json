@@ -133,8 +133,8 @@ function initializeSchema(db: DatabaseSync) {
       "alpharz",
       "Membangun berbagai sistem web dan aplikasi siap pakai untuk komunitas developer dan publik secara 100% gratis.",
       "https://github.com",
-      "",
-      "https://saweria.co/demo",
+      "/images/saweria-qr.png",
+      "https://saweria.co/widgets/qr?streamKey=a4a956bad629b41a1f3ffcda75c5d130",
       "Dukung kelanjutan pengembangan proyek dan server agar terus aktif. Terima kasih atas apresiasinya!"
     );
   }

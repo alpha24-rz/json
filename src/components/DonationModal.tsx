@@ -73,8 +73,8 @@ export default function DonationModal({
             {donationQrUrl ? (
               <img
                 src={donationQrUrl}
-                alt="Donation QR Code"
-                className="w-48 h-48 object-contain"
+                alt="Kode QR Traktir Kopi"
+                className="w-52 h-52 object-contain rounded-lg"
               />
             ) : (
               <QRCodeSVG
