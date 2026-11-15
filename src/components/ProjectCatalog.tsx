@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { Project } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
-import { SlidersHorizontal, FolderOpen, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { SlidersHorizontal, FolderOpen, ChevronDown, ChevronUp } from "lucide-react";
 
 interface ProjectCatalogProps {
   initialProjects: Project[];
@@ -82,10 +82,6 @@ export default function ProjectCatalog({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9BEC00]/15 text-neutral-900 text-xs font-bold mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#9BEC00] fill-[#9BEC00]" />
-              <span>Eksplorasi Proyek Pilihan</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
               Discover Something Great
             </h2>
